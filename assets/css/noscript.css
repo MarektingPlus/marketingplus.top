@@ -1,0 +1,3 @@
+/* noscript.css - fallback when JavaScript is disabled */
+body { visibility: visible !important; }
+.is-preload * { -moz-transition: none !important; -webkit-transition: none !important; -ms-transition: none !important; animation: none !important; }
