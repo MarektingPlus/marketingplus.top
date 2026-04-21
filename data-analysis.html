@@ -15,24 +15,7 @@
 				border-bottom: none;
 				color: #9fa3a6; }
 			#menu > ul > li > ul a:hover { color: #7B35C6 !important; }
-			/* 联系方式图标 */
-			.contact-icons { display: flex; gap: 12px; align-items: center; }
-			.contact-icon { position: relative; cursor: pointer; }
-			.contact-icon .icon { font-size: 1.4em; color: #3d4449; transition: color 0.2s; }
-			.contact-icon:hover .icon { color: #7B35C6; }
-			.wechat-qr-popup {
-				display: none; position: absolute; bottom: calc(100% + 10px);
-				left: 50%; transform: translateX(-50%); z-index: 100;
-				background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
-				box-shadow: 0 4px 16px rgba(0,0,0,0.12); padding: 8px;
-				min-width: 120px; text-align: center;
-			}
-			.wechat-qr-popup img { width: 120px; height: 120px; display: block; }
-			.qr-placeholder { font-size: 12px; color: #999; margin: 0; padding: 8px; line-height: 1.4; }
-			.wechat:hover .wechat-qr-popup { display: block; }
-			/* 箭头默认向下（展开状态） */
-			#menu ul li.opener.active > span:before { transform: rotate(-180deg) !important; }
-		</style>
+			/* contact-icons removed */
 			<style>
 			#menu > ul > li > ul { display: block !important; }
 			#menu > ul > li > ul a { font-size: 0.82em !important; padding: 0.35em 0 !important; color: #9fa3a6; }
@@ -46,6 +29,21 @@
 			.wechat:hover .wechat-qr-popup { display: block; }
 			#menu ul li.opener.active > span:before { transform: rotate(-180deg) !important; }
 		</style>
+	
+			/* Logo 入口占位 */
+			#logo-placeholder { margin: 0 0 1.2em 0; }
+			.logo-box {
+				display: flex; flex-direction: column; align-items: center;
+				justify-content: center; border: 2px dashed #bbb; border-radius: 6px;
+				padding: 18px 10px; background: #f8f8f8; cursor: pointer;
+				min-height: 75px; text-align: center;
+			}
+			.logo-box:hover { border-color: #7B35C6; background: #f0eeff; }
+			.logo-text { font-size: 0.85em; font-weight: 600; color: #3d4449; margin-bottom: 4px; }
+			.logo-hint { font-size: 0.7em; color: #aaa; }
+			/* 顶部 h1 去掉底边紫色线 */
+			h1 { border-bottom: none !important; }
+
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
@@ -124,12 +122,17 @@
 									</form>
 								</section>
 
+
+							<!-- Logo 入口 -->
+							<div id="logo-placeholder">
+								<div class="logo-box">
+									<span class="logo-text">📷 Logo 入口</span>
+									<span class="logo-hint">上传您的 Logo 图片</span>
+								</div>
+							</div>
+
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>导航</h2>
-									</header>
-									<ul>
+								<nav id="menu">									<ul>
 										<li><a href="index.html">首页</a></li>
 										<li><a href="index.html#posts">精选文章</a></li>
 										<li>
@@ -144,23 +147,6 @@
 									</ul>
 								</nav>
 
-							<!-- Contact -->
-								<section>
-									<header class="major">
-										<h2>联系我们</h2>
-									</header>
-									<div class="contact-icons">
-										<a href="mailto:meidan.wang@outlook.com" class="contact-icon" title="meidan.wang@outlook.com">
-											<span class="icon solid fa-envelope"></span>
-										</a>
-										<span class="contact-icon wechat" title="marketingplus001">
-											<span class="icon brands fa-weixin"></span>
-											<div class="wechat-qr-popup">
-												<img src="images/%E7%AD%BE%E5%90%8D.png" alt="微信二维码" />
-											</div>
-										</span>
-									</div>
-								</section>
 
 							<!-- Footer -->
 								<footer id="footer">
@@ -176,3 +162,5 @@
 		<script src="assets/js/main.js"></script>
 	</body>
 </html>
+			/* 去掉 contact-icons（不再使用） */
+			.contact-icons, .contact-icon, .wechat-qr-popup { display: none !important; }
