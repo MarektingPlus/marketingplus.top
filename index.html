@@ -10,29 +10,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="为零IT经验的品牌市场人搭建零成本专业内容网站" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-			<style>
+		<style>
 			/* 强制展开内容分类子菜单 */
 			#menu > ul > li > ul { display: block !important; }
 			#menu > ul > li > ul a {
 				font-size: 0.82em !important;
 				padding: 0.35em 0 !important;
-				border-bottom: none;
-				color: #9fa3a6; }
+				color: #9fa3a6;
+				border-bottom: none; }
 			#menu > ul > li > ul a:hover { color: #7B35C6 !important; }
-			/* contact-icons removed */
-			<style>
-			#menu > ul > li > ul { display: block !important; }
-			#menu > ul > li > ul a { font-size: 0.82em !important; padding: 0.35em 0 !important; color: #9fa3a6; }
-			#menu > ul > li > ul a:hover { color: #7B35C6 !important; }
-			.contact-icons { display: flex; gap: 12px; align-items: center; padding: 0.5em 0; }
-			.contact-icon { position: relative; cursor: pointer; }
+			#menu ul li.opener.active > span:before { transform: rotate(-180deg) !important; }
+			/* 顶部 h1 去掉底边紫色线 */
+			#banner h1 { border-bottom: none !important; }
+			/* 侧边栏 Logo */
+			#logo-placeholder { margin: 0 0 0.8em 0; padding: 0; }
+			#logo-placeholder a { display: block; }
+			#sidebar-logo { width: 100%; max-width: 10px; height: auto; border-radius: 4px; }
+			/* 侧边栏联系方式图标 */
+			.contact-icons { display: flex; gap: 12px; align-items: center; padding: 0.6em 0 0.3em 0; }
+			.contact-icon { position: relative; cursor: pointer; display: inline-block; }
 			.contact-icon .icon { font-size: 1.4em; color: #3d4449; transition: color 0.2s; }
 			.contact-icon:hover .icon { color: #7B35C6; }
-			.wechat-qr-popup { display: none; position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%); z-index: 100; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); padding: 8px; min-width: 120px; text-align: center; }
+			.wechat-qr-popup {
+				display: none; position: absolute; bottom: calc(100% + 10px);
+				left: 50%; transform: translateX(-50%); z-index: 100;
+				background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
+				box-shadow: 0 4px 16px rgba(0,0,0,0.12); padding: 8px;
+				min-width: 120px; text-align: center; }
 			.wechat-qr-popup img { width: 120px; height: 120px; display: block; border-radius: 4px; }
 			.wechat:hover .wechat-qr-popup { display: block; }
-			#menu ul li.opener.active > span:before { transform: rotate(-180deg) !important; }
 		</style>
+
+			
 	
 			/* Logo 入口占位 */
 			/* 顶部 h1 去掉底边紫色线 */
@@ -219,8 +228,4 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
-</html>
-
-			/* 去掉 contact-icons（不再使用） */
-			.contact-icons, .contact-icon, .wechat-qr-popup { display: none !important; }
+	</body></html>
