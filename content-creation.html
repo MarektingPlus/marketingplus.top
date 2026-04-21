@@ -6,6 +6,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="文案写作、视觉设计、社交媒体运营指南 - MarketingPlus" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+			<style>
+			/* 强制展开内容分类子菜单 */
+			#menu > ul > li > ul { display: block !important; }
+			#menu > ul > li > ul a {
+				font-size: 0.82em !important;
+				padding: 0.35em 0 !important;
+				border-bottom: none;
+				color: #9fa3a6; }
+			#menu > ul > li > ul a:hover { color: #7B35C6 !important; }
+			/* 联系方式图标 */
+			.contact-icons { display: flex; gap: 12px; align-items: center; }
+			.contact-icon { position: relative; cursor: pointer; }
+			.contact-icon .icon { font-size: 1.4em; color: #3d4449; transition: color 0.2s; }
+			.contact-icon:hover .icon { color: #7B35C6; }
+			.wechat-qr-popup {
+				display: none; position: absolute; bottom: calc(100% + 10px);
+				left: 50%; transform: translateX(-50%); z-index: 100;
+				background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
+				box-shadow: 0 4px 16px rgba(0,0,0,0.12); padding: 8px;
+				min-width: 120px; text-align: center;
+			}
+			.wechat-qr-popup img { width: 120px; height: 120px; display: block; }
+			.qr-placeholder { font-size: 12px; color: #999; margin: 0; padding: 8px; line-height: 1.4; }
+			.wechat:hover .wechat-qr-popup { display: block; }
+			/* 箭头默认向下（展开状态） */
+			#menu ul li.opener.active > span:before { transform: rotate(-180deg) !important; }
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
