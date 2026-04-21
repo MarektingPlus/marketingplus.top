@@ -1,150 +1,112 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>工具资源 - MarketingPlus</title>
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <style>
-    :root { --brand-primary: #7B35C6; --brand-secondary: #EFC73A; --bg-light: #f6f7f8; }
-    body { background: var(--bg-light); }
-    .zhihu-layout { max-width: 1100px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 300px; gap: 20px; }
-    .zhihu-main { background: #fff; border-radius: 8px; padding: 24px; }
-    .zhihu-sidebar { background: #fff; border-radius: 8px; padding: 20px; height: fit-content; }
-    .page-header { padding: 30px 0; background: linear-gradient(135deg, #4CAF50, #8BC34A); color: #fff; text-align: center; }
-    .page-header h1 { margin: 0; font-size: 2.2rem; }
-    .page-header p { margin: 10px 0 0; opacity: 0.9; }
-    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .tool-card { border: 1px solid #eee; border-radius: 8px; padding: 20px; transition: all 0.3s; }
-    .tool-card:hover { border-color: var(--brand-primary); box-shadow: 0 4px 15px rgba(123,53,198,0.1); }
-    .tool-card h3 { margin: 0 0 10px; font-size: 1.1rem; color: #1a1a1a; }
-    .tool-card .tag { display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 12px; font-size: 0.75rem; color: #666; margin-bottom: 10px; }
-    .tool-card p { color: #666; font-size: 0.9rem; line-height: 1.5; margin: 0 0 15px; }
-    .tool-card a { color: var(--brand-primary); text-decoration: none; font-weight: 600; }
-    .tool-card a:hover { text-decoration: underline; }
-    .sidebar-block { margin-bottom: 20px; }
-    .sidebar-block h4 { margin: 0 0 15px; color: var(--brand-primary); font-size: 1rem; }
-    .sidebar-block ul { list-style: none; padding: 0; margin: 0; }
-    .sidebar-block li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
-    .sidebar-block li:last-child { border-bottom: none; }
-    .sidebar-block a { color: #555; text-decoration: none; }
-    .sidebar-block a:hover { color: var(--brand-primary); }
-    .category-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .category-tags a { padding: 6px 12px; background: #f0f0f0; border-radius: 20px; font-size: 0.85rem; color: #555; text-decoration: none; }
-    .category-tags a:hover { background: var(--brand-primary); color: #fff; }
-    @media (max-width: 768px) { .zhihu-layout { grid-template-columns: 1fr; } }
-  </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1a1a2e; background: #f9fafb; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    :root { --purple: #7B35C6; --yellow: #EFC73A; --blue: #666CD8; --dark: #1a1a2e; --gray: #6b7280; --light: #f9fafb; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .navbar { background: #fff; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 1.3rem; font-weight: 800; color: var(--purple); letter-spacing: -0.5px; }
+    .logo span { color: var(--yellow); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: #555; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-links a.active { color: var(--purple); font-weight: 600; }
+    .page-hero { padding: 48px 0; text-align: center; color: #fff; }
+    .page-hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+    .page-hero p { font-size: 1rem; opacity: 0.9; }
+    .zh-layout { max-width: 1100px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    .zh-main { background: #fff; border-radius: 12px; padding: 28px; }
+    .zh-sidebar { background: #fff; border-radius: 12px; padding: 24px; height: fit-content; }
+    .zh-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f0f0; }
+    .art-item { padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
+    .art-item:last-child { border-bottom: none; }
+    .art-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+    .art-item h3 a { color: #1a1a2e; }
+    .art-item h3 a:hover { color: var(--purple); }
+    .art-item p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; margin-bottom: 10px; }
+    .art-meta { font-size: 0.82rem; color: #aaa; }
+    .art-meta span { margin-right: 14px; }
+    .sb-block { margin-bottom: 24px; }
+    .sb-block h4 { font-size: 0.95rem; font-weight: 700; color: var(--purple); margin-bottom: 12px; }
+    .sb-block li { padding: 7px 0; border-bottom: 1px solid #f5f5f5; }
+    .sb-block li:last-child { border-bottom: none; }
+    .sb-block a { font-size: 0.88rem; color: var(--gray); }
+    .sb-block a:hover { color: var(--purple); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { display: inline-block; padding: 5px 14px; background: #f0f0f0; border-radius: 20px; font-size: 0.82rem; color: #555; }
+    .tag:hover { background: var(--purple); color: #fff; }
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .tool-card { border: 1px solid #eee; border-radius: 10px; padding: 20px; transition: all 0.2s; }
+    .tool-card:hover { border-color: var(--purple); box-shadow: 0 4px 16px rgba(123,53,198,0.08); }
+    .tool-card .tag { margin-bottom: 10px; }
+    .tool-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .tool-card p { font-size: 0.85rem; color: var(--gray); margin-bottom: 12px; }
+    .tool-card a { color: var(--purple); font-size: 0.85rem; font-weight: 600; }
+    .footer { background: var(--dark); color: rgba(255,255,255,0.5); padding: 32px 0; text-align: center; }
+    .footer p { font-size: 0.82rem; }
+    @media (max-width: 768px) { .zh-layout { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    </style>
 </head>
 <body>
-  <header id="header" style="background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
-    <div class="inner" style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;">
-      <a href="index.html" style="font-size:1.4rem;font-weight:800;color:#7B35C6;text-decoration:none;">MarketingPlus</a>
-      <nav>
-        <ul style="display:flex;gap:25px;list-style:none;margin:0;padding:0;">
-          <li><a href="index.html" style="color:#555;text-decoration:none;">首页</a></li>
-          <li><a href="strategy.html" style="color:#555;text-decoration:none;">营销策略</a></li>
-          <li><a href="content.html" style="color:#555;text-decoration:none;">内容营销</a></li>
-          <li><a href="data.html" style="color:#555;text-decoration:none;">数据分析</a></li>
-          <li><a href="tools.html" style="color:#7B35C6;font-weight:600;">工具资源</a></li>
-          <li><a href="articles.html" style="color:#555;text-decoration:none;">精选文章</a></li>
-        </ul>
-      </nav>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Marketing<span>Plus</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="strategy.html">营销策略</a></li>
+        <li><a href="content.html">内容营销</a></li>
+        <li><a href="data.html">数据分析</a></li>
+        <li><a href="tools.html" class="active">工具资源</a></li>
+        <li><a href="articles.html">精选文章</a></li>
+      </ul>
     </div>
-  </header>
-
-  <div class="page-header">
+  </nav>
+  <div class="page-hero" style="background: linear-gradient(135deg, #4CAF50, #8BC34A);">
     <h1>🛠️ 工具资源</h1>
     <p>免费高效的营销工具推荐，节省你的时间和预算</p>
   </div>
-
-  <div class="zhihu-layout">
-    <div class="zhihu-main">
-      <h2 style="margin:0 0 20px;font-size:1.3rem;">推荐工具</h2>
-      <div class="tool-grid">
-        <div class="tool-card">
-          <span class="tag">免费</span>
-          <h3>Canva</h3>
-          <p>在线设计工具，零基础也能做出专业海报、社交媒体图片</p>
-          <a href="#" target="_blank">访问 →</a>
-        </div>
-        <div class="tool-card">
-          <span class="tag">免费</span>
-          <h3>Figma</h3>
-          <p>协作式UI设计工具，适合团队一起做设计方案</p>
-          <a href="#" target="_blank">访问 →</a>
-        </div>
-        <div class="tool-card">
-          <span class="tag">免费</span>
-          <h3>Unsplash</h3>
-          <p>高质量免费商用图片库，再也不用担心图片版权问题</p>
-          <a href="#" target="_blank">访问 →</a>
-        </div>
-        <div class="tool-card">
-          <span class="tag">免费</span>
-          <h3>Remove.bg</h3>
-          <p>AI自动抠图工具，5秒去除图片背景</p>
-          <a href="#" target="_blank">访问 →</a>
-        </div>
-        <div class="tool-card">
-          <span class="tag">免费</span>
-          <h3>Notion</h3>
-          <p>一体化办公工具，做笔记、项目管理、文档协作都在行</p>
-          <a href="#" target="_blank">访问 →</a>
-        </div>
-        <div class="tool-card">
-          <span class="tag">免费</span>
-          <h3>稿定设计</h3>
-          <p>国内设计师必备的在线作图工具，模板丰富</p>
-          <a href="#" target="_blank">访问 →</a>
-        </div>
-        <div class="tool-card">
-          <span class="tag">免费</span>
-          <h3>创客贴</h3>
-          <p>简单好用的在线设计工具，适合营销物料制作</p>
-          <a href="#" target="_blank">访问 →</a>
-        </div>
-        <div class="tool-card">
-          <span class="tag">免费</span>
-          <h3>ProcessOn</h3>
-          <p>在线流程图、思维导图工具，梳理业务流程</p>
-          <a href="#" target="_blank">访问 →</a>
+  <div style="max-width:1100px;margin:0 auto;padding:32px 24px;">
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:24px;">
+      <div class="zh-main">
+        <div class="zh-title">推荐工具</div>
+        <div class="tool-grid">
+          <div class="tool-card"><span class="tag">免费</span><h3>Canva</h3><p>在线设计工具，零基础也能做出专业海报、社交媒体图片。</p><a href="#">访问 →</a></div>
+          <div class="tool-card"><span class="tag">免费</span><h3>Figma</h3><p>协作式UI设计工具，适合团队一起做设计方案。</p><a href="#">访问 →</a></div>
+          <div class="tool-card"><span class="tag">免费</span><h3>Unsplash</h3><p>高质量免费商用图片库，再也不用担心图片版权问题。</p><a href="#">访问 →</a></div>
+          <div class="tool-card"><span class="tag">免费</span><h3>Remove.bg</h3><p>AI自动抠图工具，5秒去除图片背景。</p><a href="#">访问 →</a></div>
+          <div class="tool-card"><span class="tag">免费</span><h3>Notion</h3><p>一体化办公工具，做笔记、项目管理、文档协作都在行。</p><a href="#">访问 →</a></div>
+          <div class="tool-card"><span class="tag">免费</span><h3>稿定设计</h3><p>国内设计师必备的在线作图工具，模板丰富。</p><a href="#">访问 →</a></div>
+          <div class="tool-card"><span class="tag">免费</span><h3>创客贴</h3><p>简单好用的在线设计工具，适合营销物料制作。</p><a href="#">访问 →</a></div>
+          <div class="tool-card"><span class="tag">免费</span><h3>ProcessOn</h3><p>在线流程图、思维导图工具，梳理业务流程。</p><a href="#">访问 →</a></div>
         </div>
       </div>
+      <aside class="zh-sidebar">
+        <div class="sb-block"><h4>📂 分类</h4><ul>
+          <li><a href="#">设计工具</a></li><li><a href="#">协作工具</a></li>
+          <li><a href="#">图片资源</a></li><li><a href="#">数据分析</a></li>
+          <li><a href="#">写作工具</a></li>
+        </ul></div>
+        <div class="sb-block"><h4>🔥 热门工具</h4><ul>
+          <li><a href="#">Canva 中文版</a></li><li><a href="#">Figma 免费版</a></li>
+          <li><a href="#">Notion 学生版</a></li><li><a href="#">Midjourney 注册</a></li>
+        </ul></div>
+        <div class="sb-block"><h4>💡 快速入口</h4><ul>
+          <li><a href="index.html">← 返回首页</a></li><li><a href="articles.html">精选文章</a></li>
+          <li><a href="strategy.html">营销策略</a></li><li><a href="content.html">内容营销</a></li>
+        </ul></div>
+      </aside>
     </div>
-    <aside class="zhihu-sidebar">
-      <div class="sidebar-block">
-        <h4>📂 分类</h4>
-        <div class="category-tags">
-          <a href="tools.html">设计工具</a>
-          <a href="#">协作工具</a>
-          <a href="#">图片资源</a>
-          <a href="#">数据分析</a>
-          <a href="#">写作工具</a>
-        </div>
-      </div>
-      <div class="sidebar-block">
-        <h4>🔥 热门工具</h4>
-        <ul>
-          <li><a href="#">Canva 中文版</a></li>
-          <li><a href="#">Figma 免费版</a></li>
-          <li><a href="#">Notion 学生版</a></li>
-          <li><a href="#">Midjourney 注册</a></li>
-        </ul>
-      </div>
-      <div class="sidebar-block">
-        <h4>💡 快速入口</h4>
-        <ul>
-          <li><a href="index.html">← 返回首页</a></li>
-          <li><a href="articles.html">精选文章</a></li>
-          <li><a href="strategy.html">营销策略</a></li>
-          <li><a href="content.html">内容营销</a></li>
-        </ul>
-      </div>
-    </aside>
   </div>
-
-  <footer id="footer" style="background:#1a1a2e;padding:30px 0;text-align:center;">
-    <p style="color:rgba(255,255,255,0.5);margin:0;">&copy; 2026 MarketingPlus. All rights reserved.</p>
-  </footer>
+  <footer class="footer"><p>© 2026 MarketingPlus. All rights reserved. | NEBULAR</p></footer>
 </body>
 </html>
