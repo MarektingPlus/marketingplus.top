@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>精选文章 - MarketingPlus</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    :root { --brand-primary: #7B35C6; --brand-secondary: #EFC73A; --bg-light: #f6f7f8; }
+    body { background: var(--bg-light); }
+    .zhihu-layout { max-width: 1100px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 300px; gap: 20px; }
+    .zhihu-main { background: #fff; border-radius: 8px; padding: 24px; }
+    .zhihu-sidebar { background: #fff; border-radius: 8px; padding: 20px; height: fit-content; }
+    .page-header { padding: 40px 0; background: linear-gradient(135deg, var(--brand-primary) 0%, #666CD8 50%, var(--brand-secondary) 100%); color: #fff; text-align: center; }
+    .page-header h1 { margin: 0; font-size: 2.5rem; }
+    .page-header p { margin: 10px 0 0; opacity: 0.9; font-size: 1.1rem; }
+    .filter-tabs { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; }
+    .filter-tabs a { padding: 8px 20px; border-radius: 20px; text-decoration: none; color: #666; font-size: 0.95rem; transition: all 0.3s; }
+    .filter-tabs a:hover, .filter-tabs a.active { background: var(--brand-primary); color: #fff; }
+    .article-list { }
+    .article-item { padding: 20px 0; border-bottom: 1px solid #eee; display: grid; grid-template-columns: 1fr 200px; gap: 20px; }
+    .article-item:last-child { border-bottom: none; }
+    .article-content h3 { margin: 0 0 10px; font-size: 1.25rem; }
+    .article-content h3 a { color: #1a1a1a; text-decoration: none; }
+    .article-content h3 a:hover { color: var(--brand-primary); }
+    .article-content .excerpt { color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px; }
+    .article-content .meta { font-size: 0.85rem; color: #999; }
+    .article-content .meta span { margin-right: 15px; }
+    .article-content .meta a { color: var(--brand-primary); text-decoration: none; }
+    .article-thumb { width: 100%; height: 140px; background: linear-gradient(135deg, var(--brand-primary), var(--brand-tertiary)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem; }
+    .sidebar-block { margin-bottom: 20px; }
+    .sidebar-block h4 { margin: 0 0 15px; color: var(--brand-primary); font-size: 1rem; }
+    .sidebar-block ul { list-style: none; padding: 0; margin: 0; }
+    .sidebar-block li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+    .sidebar-block li:last-child { border-bottom: none; }
+    .sidebar-block a { color: #555; text-decoration: none; }
+    .sidebar-block a:hover { color: var(--brand-primary); }
+    .hot-list { counter-reset: hot; }
+    .hot-list li { display: flex; align-items: flex-start; gap: 10px; }
+    .hot-list li::before { counter-increment: hot; content: counter(hot); min-width: 20px; height: 20px; background: var(--brand-primary); color: #fff; border-radius: 50%; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 768px) { 
+      .zhihu-layout { grid-template-columns: 1fr; }
+      .article-item { grid-template-columns: 1fr; }
+      .article-thumb { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header id="header" style="background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+    <div class="inner" style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;">
+      <a href="index.html" style="font-size:1.4rem;font-weight:800;color:#7B35C6;text-decoration:none;">MarketingPlus</a>
+      <nav>
+        <ul style="display:flex;gap:25px;list-style:none;margin:0;padding:0;">
+          <li><a href="index.html" style="color:#555;text-decoration:none;">首页</a></li>
+          <li><a href="strategy.html" style="color:#555;text-decoration:none;">营销策略</a></li>
+          <li><a href="content.html" style="color:#555;text-decoration:none;">内容营销</a></li>
+          <li><a href="data.html" style="color:#555;text-decoration:none;">数据分析</a></li>
+          <li><a href="tools.html" style="color:#555;text-decoration:none;">工具资源</a></li>
+          <li><a href="articles.html" style="color:#7B35C6;font-weight:600;">精选文章</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <h1>📚 精选文章</h1>
+    <p>最受欢迎的品牌营销干货，一站式学习</p>
+  </div>
+
+  <div class="zhihu-layout">
+    <div class="zhihu-main">
+      <div class="filter-tabs">
+        <a href="articles.html" class="active">全部</a>
+        <a href="strategy.html">营销策略</a>
+        <a href="content.html">内容营销</a>
+        <a href="data.html">数据分析</a>
+        <a href="tools.html">工具资源</a>
+      </div>
+      
+      <div class="article-list">
+        <article class="article-item">
+          <div class="article-content">
+            <h3><a href="#">品牌建设的底层逻辑：从原理到落地</a></h3>
+            <p class="excerpt">品牌建设不是简单的视觉设计，而是一套完整的体系。本文从底层原理出发，帮你建立正确的品牌思维...</p>
+            <div class="meta">
+              <span>👁️ 5,234 阅读</span>
+              <span>👍 328 赞同</span>
+              <span>📅 2026-04-20</span>
+              <span>分类: <a href="strategy.html">营销策略</a></span>
+            </div>
+          </div>
+          <div class="article-thumb">📊</div>
+        </article>
+        
+        <article class="article-item">
+          <div class="article-content">
+            <h3><a href="#">精准用户画像绘制：让营销更有的放矢</a></h3>
+            <p class="excerpt">学会这招，让你的营销预算花得更值。本文分享一套完整的用户画像绘制方法论...</p>
+            <div class="meta">
+              <span>👁️ 4,123 阅读</span>
+              <span>👍 267 赞同</span>
+              <span>📅 2026-04-18</span>
+              <span>分类: <a href="strategy.html">营销策略</a></span>
+            </div>
+          </div>
+          <div class="article-thumb">🎯</div>
+        </article>
+        
+        <article class="article-item">
+          <div class="article-content">
+            <h3><a href="#">内容营销实战指南：从0到1全攻略</a></h3>
+            <p class="excerpt">内容是营销的核心资产。这篇万字长文，手把手教你搭建内容营销体系...</p>
+            <div class="meta">
+              <span>👁️ 6,789 阅读</span>
+              <span>👍 445 赞同</span>
+              <span>📅 2026-04-15</span>
+              <span>分类: <a href="content.html">内容营销</a></span>
+            </div>
+          </div>
+          <div class="article-thumb">✍️</div>
+        </article>
+        
+        <article class="article-item">
+          <div class="article-content">
+            <h3><a href="#">爆款文案公式：让你的文章自带传播属性</a></h3>
+            <p class="excerpt">好的文案能让内容插上翅膀。分享写出高转化率文案的黄金法则和实战模板...</p>
+            <div class="meta">
+              <span>👁️ 5,432 阅读</span>
+              <span>👍 389 赞同</span>
+              <span>📅 2026-04-12</span>
+              <span>分类: <a href="content.html">内容营销</a></span>
+            </div>
+          </div>
+          <div class="article-thumb">🔥</div>
+        </article>
+        
+        <article class="article-item">
+          <div class="article-content">
+            <h3><a href="#">Google Analytics 4 实战入门指南</a></h3>
+            <p class="excerpt">GA4是数据分析的基础工具。本文详解从零开始掌握GA4的核心功能...</p>
+            <div class="meta">
+              <span>👁️ 3,567 阅读</span>
+              <span>👍 198 赞同</span>
+              <span>📅 2026-04-10</span>
+              <span>分类: <a href="data.html">数据分析</a></span>
+            </div>
+          </div>
+          <div class="article-thumb">📈</div>
+        </article>
+        
+        <article class="article-item">
+          <div class="article-content">
+            <h3><a href="#">2026年营销趋势：这些变化值得关注</a></h3>
+            <p class="excerpt">新的一年，营销领域有哪些新趋势？本文帮你把握未来方向...</p>
+            <div class="meta">
+              <span>👁️ 4,876 阅读</span>
+              <span>👍 276 赞同</span>
+              <span>📅 2026-04-08</span>
+              <span>分类: <a href="strategy.html">营销策略</a></span>
+            </div>
+          </div>
+          <div class="article-thumb">🚀</div>
+        </article>
+        
+        <article class="article-item">
+          <div class="article-content">
+            <h3><a href="#">免费高效！营销人必备的20款工具</a></h3>
+            <p class="excerpt">工欲善其事，必先利其器。推荐20款免费且好用的营销工具...</p>
+            <div class="meta">
+              <span>👁️ 4,234 阅读</span>
+              <span>👍 234 赞同</span>
+              <span>📅 2026-04-05</span>
+              <span>分类: <a href="tools.html">工具资源</a></span>
+            </div>
+          </div>
+          <div class="article-thumb">🛠️</div>
+        </article>
+        
+        <article class="article-item">
+          <div class="article-content">
+            <h3><a href="#">私域流量运营：从引流到变现全流程</a></h3>
+            <p class="excerpt">私域流量是当前最热门的营销话题。详解如何搭建和运营私域流量池...</p>
+            <div class="meta">
+              <span>👁️ 5,678 阅读</span>
+              <span>👍 312 赞同</span>
+              <span>📅 2026-04-01</span>
+              <span>分类: <a href="strategy.html">营销策略</a></span>
+            </div>
+          </div>
+          <div class="article-thumb">💎</div>
+        </article>
+      </div>
+    </div>
+    
+    <aside class="zhihu-sidebar">
+      <div class="sidebar-block">
+        <h4>🔥 热门文章</h4>
+        <ul class="hot-list">
+          <li><a href="#">内容营销实战指南</a></li>
+          <li><a href="#">爆款文案公式</a></li>
+          <li><a href="#">品牌建设底层逻辑</a></li>
+          <li><a href="#">私域流量运营</a></li>
+          <li><a href="#">2026营销趋势</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-block">
+        <h4>📂 文章分类</h4>
+        <ul>
+          <li><a href="strategy.html">📊 营销策略</a></li>
+          <li><a href="content.html">✍️ 内容营销</a></li>
+          <li><a href="data.html">📈 数据分析</a></li>
+          <li><a href="tools.html">🛠️ 工具资源</a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-block">
+        <h4>💡 关注我们</h4>
+        <p style="color:#666;font-size:0.9rem;line-height:1.5;">扫描二维码或添加微信<br>marketingplus001</p>
+        <div style="width:100px;height:100px;background:#f0f0f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#999;font-size:0.8rem;text-align:center;margin-top:10px;">
+          [二维码]
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer id="footer" style="background:#1a1a2e;padding:30px 0;text-align:center;">
+    <p style="color:rgba(255,255,255,0.5);margin:0;">&copy; 2026 MarketingPlus. All rights reserved. | NEBULAR</p>
+  </footer>
+</body>
+</html>
