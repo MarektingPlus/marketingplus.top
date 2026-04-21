@@ -1,209 +1,523 @@
 <!DOCTYPE HTML>
-<!--
-	MarketingPlus - 品牌市场人内容平台
-	基于 Editorial 模板定制
--->
-<html>
-	<head>
-		<title>MarketingPlus - 品牌市场人的内容平台</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="为零IT经验的品牌市场人搭建零成本专业内容网站" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>MarketingPlus - 品牌市场人的内容平台</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/custom.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    /* NEBULAR Brand Colors */
+    :root {
+      --brand-primary: #7B35C6;
+      --brand-secondary: #EFC73A;
+      --brand-tertiary: #666CD8;
+      --text-dark: #1a1a2e;
+      --text-light: #666;
+      --bg-light: #fafafa;
+    }
+    
+    /* Logo Style */
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .site-logo-text {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--brand-primary);
+      letter-spacing: 2px;
+    }
+    .site-logo-tagline {
+      font-size: 0.7rem;
+      color: #999;
+      font-weight: 400;
+    }
+    
+    /* Banner */
+    #banner {
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-tertiary) 100%);
+      padding: 4rem 0;
+    }
+    #banner h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+    #banner .tagline {
+      color: var(--brand-secondary);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    #banner .button {
+      background: var(--brand-secondary);
+      color: var(--text-dark) !important;
+      font-weight: 700;
+      border: none;
+      padding: 0.8em 2em;
+    }
+    #banner .button:hover {
+      background: #f5d64a;
+      transform: translateY(-2px);
+    }
+    #banner .button.secondary {
+      background: rgba(255,255,255,0.2);
+      color: #fff !important;
+      border: 2px solid #fff;
+    }
+    
+    /* Section titles */
+    h2.section-title {
+      color: var(--brand-primary);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--brand-secondary);
+      display: inline-block;
+    }
+    
+    /* Feature cards */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .feature-card {
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(123,53,198,0.15);
+    }
+    .feature-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      color: var(--brand-primary);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .feature-card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--brand-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    /* Stats */
+    .stats-bar {
+      background: var(--brand-primary);
+      padding: 3rem 0;
+      margin: 3rem 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-item h3 {
+      color: var(--brand-secondary);
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 0;
+    }
+    .stat-item p {
+      color: rgba(255,255,255,0.8);
+      margin: 0.5rem 0 0;
+      font-size: 0.9rem;
+    }
+    
+    /* Content categories */
+    .category-section {
+      padding: 3rem 0;
+      background: var(--bg-light);
+      margin: 2rem 0;
+    }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .category-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--brand-primary);
+      transition: all 0.3s ease;
+    }
+    .category-card:hover {
+      border-left-color: var(--brand-secondary);
+      transform: translateX(5px);
+    }
+    .category-card h4 {
+      margin: 0 0 0.5rem;
+      color: var(--text-dark);
+    }
+    .category-card p {
+      margin: 0;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    .category-card a {
+      color: var(--brand-primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    /* Articles */
+    .articles-section {
+      padding: 3rem 0;
+    }
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .article-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(123,53,198,0.12);
+    }
+    .article-card .image {
+      height: 180px;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-tertiary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 3rem;
+    }
+    .article-card .content {
+      padding: 1.5rem;
+    }
+    .article-card h4 {
+      margin: 0 0 0.8rem;
+      color: var(--text-dark);
+    }
+    .article-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .article-card .meta {
+      font-size: 0.8rem;
+      color: #999;
+    }
+    .article-card a.more {
+      color: var(--brand-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--brand-secondary) 0%, #f5d64a 100%);
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      color: var(--brand-primary);
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      color: var(--text-dark);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Footer */
+    #footer {
+      background: var(--text-dark);
+      padding: 3rem 0;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+    .footer-contact h4 {
+      color: var(--brand-secondary);
+      margin-bottom: 1rem;
+    }
+    .footer-contact p {
+      color: rgba(255,255,255,0.6);
+      margin: 0.3rem 0;
+    }
+    .qr-placeholder {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px;
+    }
+    
+    /* Mobile */
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .category-grid { grid-template-columns: 1fr; }
+      .article-grid { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+      #banner h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body class="homepage is-preload">
+  <div id="page-wrapper">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
+        <a href="index.html" class="site-logo">
+          <span class="site-logo-text">MarketingPlus</span>
+        </a>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li class="submenu">
+              <a href="#">内容分类</a>
+              <ul>
+                <li><a href="strategy.html">营销策略</a></li>
+                <li><a href="content.html">内容营销</a></li>
+                <li><a href="data.html">数据分析</a></li>
+                <li><a href="tools.html">工具资源</a></li>
+              </ul>
+            </li>
+            <li><a href="articles.html">精选文章</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+    <!-- Banner -->
+    <section id="banner">
+      <div class="inner">
+        <header>
+          <h1>MarketingPlus</h1>
+          <p class="tagline">品牌市场人的内容平台</p>
+        </header>
+        <p>为零IT经验的品牌市场人打造的零成本专业内容网站搭建服务。用更聪明的方式做品牌营销，让好内容被发现。</p>
+        <ul class="actions stacked">
+          <li><a href="#features" class="button big">了解更多</a></li>
+          <li><a href="articles.html" class="button big secondary">浏览文章</a></li>
+        </ul>
+      </div>
+    </section>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>MarketingPlus</strong></a>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-weixin"><span class="label">微信</span></a></li>
-										<li><a href="mailto:meidan.wang@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-									</ul>
-								</header>
+    <!-- Main -->
+    <div id="main">
+      
+      <!-- Features -->
+      <section id="features" class="wrapper style1">
+        <div class="inner">
+          <header class="major">
+            <h2 class="section-title">我们的服务</h2>
+          </header>
+          <div class="features">
+            <div class="feature-card">
+              <div class="icon">📊</div>
+              <h3>营销策略</h3>
+              <p>从0到1搭建品牌营销体系，制定可落地的增长策略</p>
+              <a href="strategy.html">查看详情 →</a>
+            </div>
+            <div class="feature-card">
+              <div class="icon">✍️</div>
+              <h3>内容营销</h3>
+              <p>专业内容创作指南，让你的品牌故事更具吸引力</p>
+              <a href="content.html">查看详情 →</a>
+            </div>
+            <div class="feature-card">
+              <div class="icon">📈</div>
+              <h3>数据分析</h3>
+              <p>数据驱动的营销决策，让每一步都有据可依</p>
+              <a href="data.html">查看详情 →</a>
+            </div>
+            <div class="feature-card">
+              <div class="icon">🛠️</div>
+              <h3>工具资源</h3>
+              <p>免费高效的营销工具推荐，节省你的时间和预算</p>
+              <a href="tools.html">查看详情 →</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>品牌市场人的<br />内容创作平台</h1>
-											<p>为零IT经验的品牌市场人搭建零成本专业内容网站</p>
-										</header>
-										<p>我们提供最实用的品牌营销内容、案例分析和实战技巧，帮助品牌市场人提升工作效率，打造专业形象。</p>
-										<ul class="actions">
-											<li><a href="#posts" class="button big">浏览内容</a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="images/pic10.jpg" alt="MarketingPlus" />
-									</span>
-								</section>
+      <!-- Stats -->
+      <section class="stats-bar">
+        <div class="inner">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <h3>500+</h3>
+              <p>企业客户信赖</p>
+            </div>
+            <div class="stat-item">
+              <h3>1000+</h3>
+              <p>优质内容文章</p>
+            </div>
+            <div class="stat-item">
+              <h3>50+</h3>
+              <p>行业解决方案</p>
+            </div>
+            <div class="stat-item">
+              <h3>98%</h3>
+              <p>客户满意度</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-							<!-- Section - Features -->
-								<section>
-									<header class="major">
-										<h2>核心内容</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon solid fa-bullhorn"></span>
-											<div class="content">
-												<h3>品牌营销</h3>
-												<p>品牌策略、营销推广、内容运营等实战经验分享</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-chart-line"></span>
-											<div class="content">
-												<h3>数据分析</h3>
-												<p>SEO/SEM 技巧、流量分析、转化优化等专业教程</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-pen-nib"></span>
-											<div class="content">
-												<h3>内容创作</h3>
-												<p>文案写作、视觉设计、社交媒体运营指南</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-lightbulb"></span>
-											<div class="content">
-												<h3>案例分析</h3>
-												<p>国内外品牌营销案例拆解，借鉴优秀实践经验</p>
-											</div>
-										</article>
-									</div>
-								</section>
+      <!-- Content Categories -->
+      <section class="category-section">
+        <div class="inner">
+          <header class="major">
+            <h2 class="section-title">内容分类</h2>
+          </header>
+          <div class="category-grid">
+            <div class="category-card">
+              <h4>📊 营销策略</h4>
+              <p>品牌定位、用户洞察、竞争分析、营销漏斗优化</p>
+              <a href="strategy.html">进入专题 →</a>
+            </div>
+            <div class="category-card">
+              <h4>✍️ 内容营销</h4>
+              <p>内容规划、文案写作、视觉设计、视频制作</p>
+              <a href="content.html">进入专题 →</a>
+            </div>
+            <div class="category-card">
+              <h4>📈 数据分析</h4>
+              <p>流量分析、转化追踪、效果评估、报告产出</p>
+              <a href="data.html">进入专题 →</a>
+            </div>
+            <div class="category-card">
+              <h4>🛠️ 工具资源</h4>
+              <p>免费工具推荐、效率软件、协作平台、素材库</p>
+              <a href="tools.html">进入专题 →</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-							<!-- Section - Posts -->
-							<section id="posts">
-									<header class="major">
-										<h2>精选文章</h2>
-									</header>
-									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<h3>品牌定位与差异化策略</h3>
-											<p>如何通过精准的品牌定位，在竞争激烈的市场中脱颖而出，建立独特的品牌认知。</p>
-											<ul class="actions">
-												<li><a href="#" class="button">阅读全文</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<h3>内容营销实战指南</h3>
-											<p>从0到1构建内容营销体系，提升品牌影响力和用户转化。</p>
-											<ul class="actions">
-												<li><a href="#" class="button">阅读全文</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<h3>社交媒体运营技巧</h3>
-											<p>微信、微博、抖音等平台运营策略，帮你打造爆款内容。</p>
-											<ul class="actions">
-												<li><a href="#" class="button">阅读全文</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3>SEO 入门与进阶</h3>
-											<p>搜索引擎优化基础教程，让你的内容获得更多免费流量。</p>
-											<ul class="actions">
-												<li><a href="#" class="button">阅读全文</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3>品牌视觉设计原则</h3>
-											<p>非设计师也能学会的品牌视觉设计基础，打造专业形象。</p>
-											<ul class="actions">
-												<li><a href="#" class="button">阅读全文</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-											<h3>数据驱动营销决策</h3>
-											<p>利用数据分析优化营销策略，让每一分钱都花在刀刃上。</p>
-											<ul class="actions">
-												<li><a href="#" class="button">阅读全文</a></li>
-											</ul>
-										</article>
-									</div>
-								</section>
+      <!-- Articles Preview -->
+      <section class="articles-section">
+        <div class="inner">
+          <header class="major">
+            <h2 class="section-title">精选文章</h2>
+            <p style="margin-bottom: 2rem;">最受欢迎的品牌营销干货</p>
+          </header>
+          <div class="article-grid">
+            <article class="article-card">
+              <div class="image">📝</div>
+              <div class="content">
+                <h4>品牌建设的底层逻辑</h4>
+                <p>从0开始理解品牌建设，掌握核心方法论</p>
+                <div class="meta">阅读 2,345 次</div>
+                <a href="articles.html" class="more">阅读全文 →</a>
+              </div>
+            </article>
+            <article class="article-card">
+              <div class="image">🎯</div>
+              <div class="content">
+                <h4>精准用户画像绘制</h4>
+                <p>学会这招，让你的营销更精准、更有效</p>
+                <div class="meta">阅读 1,892 次</div>
+                <a href="articles.html" class="more">阅读全文 →</a>
+              </div>
+            </article>
+            <article class="article-card">
+              <div class="image">⚡</div>
+              <div class="content">
+                <h4>内容营销实战指南</h4>
+                <p>从选题到发布，手把手教你做内容</p>
+                <div class="meta">阅读 3,127 次</div>
+                <a href="articles.html" class="more">阅读全文 →</a>
+              </div>
+            </article>
+          </div>
+          <div style="text-align: center; margin-top: 2rem;">
+            <a href="articles.html" class="button primary">查看更多文章</a>
+          </div>
+        </div>
+      </section>
 
-						</div>
-					</div>
+      <!-- CTA -->
+      <section class="cta-section">
+        <div class="inner">
+          <h2>准备好开始了吗？</h2>
+          <p>无论你是品牌市场新人还是资深从业者，MarketingPlus 都能帮助你更好地完成工作。</p>
+          <a href="articles.html" class="button big" style="background: var(--brand-primary); color: #fff !important;">开始探索</a>
+        </div>
+      </section>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+    </div>
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="搜索文章..." />
-									</form>
-								</section>
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <div class="footer-content">
+          <div class="footer-contact">
+            <h4>联系我们</h4>
+            <p>📧 meidan.wang@outlook.com</p>
+            <p>💬 marketingplus001</p>
+            <p>📱 欢迎扫码咨询</p>
+            <div class="qr-placeholder" style="margin-top: 1rem;">
+              [二维码]<br>请添加
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>快速链接</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li><a href="index.html" style="color: rgba(255,255,255,0.6);">首页</a></li>
+              <li><a href="strategy.html" style="color: rgba(255,255,255,0.6);">营销策略</a></li>
+              <li><a href="content.html" style="color: rgba(255,255,255,0.6);">内容营销</a></li>
+              <li><a href="data.html" style="color: rgba(255,255,255,0.6);">数据分析</a></li>
+              <li><a href="tools.html" style="color: rgba(255,255,255,0.6);">工具资源</a></li>
+              <li><a href="articles.html" style="color: rgba(255,255,255,0.6);">精选文章</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+          <p style="color: rgba(255,255,255,0.4); margin: 0;">&copy; 2026 MarketingPlus. All rights reserved. | NEBULAR</p>
+        </div>
+      </div>
+    </footer>
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>导航</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">首页</a></li>
-										<li><a href="#posts">精选文章</a></li>
-										<li>
-											<span class="opener">内容分类</span>
-											<ul>
-												<li><a href="#">品牌营销</a></li>
-												<li><a href="#">数据分析</a></li>
-												<li><a href="#">内容创作</a></li>
-												<li><a href="#">案例分析</a></li>
-											</ul>
-										</li>
-										<li><a href="#">关于我们</a></li>
-										<li><a href="mailto:meidan.wang@outlook.com">联系我们</a></li>
-									</ul>
-								</nav>
+  </div>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>联系我们</h2>
-									</header>
-									<p>有任何问题或合作意向，欢迎联系我们。</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope">meidan.wang@outlook.com</li>
-										<li class="icon brands fa-weixin">marketingplus001</li>
-									</ul>
-								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; 2024 MarketingPlus. 基于 <a href="https://html5up.net">HTML5 UP</a> 模板定制.</p>
-								</footer>
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
