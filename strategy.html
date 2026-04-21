@@ -1,126 +1,137 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>营销策略 - MarketingPlus</title>
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <style>
-    :root { --brand-primary: #7B35C6; --brand-secondary: #EFC73A; --bg-light: #f6f7f8; }
-    body { background: var(--bg-light); }
-    .zhihu-layout { max-width: 1100px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 300px; gap: 20px; }
-    .zhihu-main { background: #fff; border-radius: 8px; padding: 24px; }
-    .zhihu-sidebar { background: #fff; border-radius: 8px; padding: 20px; height: fit-content; }
-    .page-header { padding: 30px 0; background: linear-gradient(135deg, var(--brand-primary), #666CD8); color: #fff; text-align: center; }
-    .page-header h1 { margin: 0; font-size: 2.2rem; }
-    .page-header p { margin: 10px 0 0; opacity: 0.9; }
-    .article-list { }
-    .article-item { padding: 20px 0; border-bottom: 1px solid #eee; }
-    .article-item:last-child { border-bottom: none; }
-    .article-item h3 { margin: 0 0 10px; font-size: 1.2rem; }
-    .article-item h3 a { color: #1a1a1a; text-decoration: none; }
-    .article-item h3 a:hover { color: var(--brand-primary); }
-    .article-item .excerpt { color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px; }
-    .article-item .meta { font-size: 0.85rem; color: #999; }
-    .article-item .meta span { margin-right: 15px; }
-    .sidebar-block { margin-bottom: 20px; }
-    .sidebar-block h4 { margin: 0 0 15px; color: var(--brand-primary); font-size: 1rem; }
-    .sidebar-block ul { list-style: none; padding: 0; margin: 0; }
-    .sidebar-block li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
-    .sidebar-block li:last-child { border-bottom: none; }
-    .sidebar-block a { color: #555; text-decoration: none; }
-    .sidebar-block a:hover { color: var(--brand-primary); }
-    .category-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .category-tags a { padding: 6px 12px; background: #f0f0f0; border-radius: 20px; font-size: 0.85rem; color: #555; text-decoration: none; }
-    .category-tags a:hover { background: var(--brand-primary); color: #fff; }
-    @media (max-width: 768px) { .zhihu-layout { grid-template-columns: 1fr; } }
-  </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1a1a2e; background: #f9fafb; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    :root { --purple: #7B35C6; --yellow: #EFC73A; --blue: #666CD8; --dark: #1a1a2e; --gray: #6b7280; --light: #f9fafb; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .navbar { background: #fff; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 1.3rem; font-weight: 800; color: var(--purple); letter-spacing: -0.5px; }
+    .logo span { color: var(--yellow); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: #555; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-links a.active { color: var(--purple); font-weight: 600; }
+    .page-hero { padding: 48px 0; text-align: center; color: #fff; }
+    .page-hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+    .page-hero p { font-size: 1rem; opacity: 0.9; }
+    .zh-layout { max-width: 1100px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+    .zh-main { background: #fff; border-radius: 12px; padding: 28px; }
+    .zh-sidebar { background: #fff; border-radius: 12px; padding: 24px; height: fit-content; }
+    .zh-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f0f0; }
+    .art-item { padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
+    .art-item:last-child { border-bottom: none; }
+    .art-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+    .art-item h3 a { color: #1a1a2e; }
+    .art-item h3 a:hover { color: var(--purple); }
+    .art-item p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; margin-bottom: 10px; }
+    .art-meta { font-size: 0.82rem; color: #aaa; }
+    .art-meta span { margin-right: 14px; }
+    .sb-block { margin-bottom: 24px; }
+    .sb-block h4 { font-size: 0.95rem; font-weight: 700; color: var(--purple); margin-bottom: 12px; }
+    .sb-block li { padding: 7px 0; border-bottom: 1px solid #f5f5f5; }
+    .sb-block li:last-child { border-bottom: none; }
+    .sb-block a { font-size: 0.88rem; color: var(--gray); }
+    .sb-block a:hover { color: var(--purple); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { display: inline-block; padding: 5px 14px; background: #f0f0f0; border-radius: 20px; font-size: 0.82rem; color: #555; }
+    .tag:hover { background: var(--purple); color: #fff; }
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .tool-card { border: 1px solid #eee; border-radius: 10px; padding: 20px; transition: all 0.2s; }
+    .tool-card:hover { border-color: var(--purple); box-shadow: 0 4px 16px rgba(123,53,198,0.08); }
+    .tool-card .tag { margin-bottom: 10px; }
+    .tool-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .tool-card p { font-size: 0.85rem; color: var(--gray); margin-bottom: 12px; }
+    .tool-card a { color: var(--purple); font-size: 0.85rem; font-weight: 600; }
+    .footer { background: var(--dark); color: rgba(255,255,255,0.5); padding: 32px 0; text-align: center; }
+    .footer p { font-size: 0.82rem; }
+    @media (max-width: 768px) { .zh-layout { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    </style>
 </head>
 <body>
-  <header id="header" style="background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
-    <div class="inner" style="display:flex;justify-content:space-between;align-items:center;padding:15px 20px;">
-      <a href="index.html" style="font-size:1.4rem;font-weight:800;color:#7B35C6;text-decoration:none;">MarketingPlus</a>
-      <nav>
-        <ul style="display:flex;gap:25px;list-style:none;margin:0;padding:0;">
-          <li><a href="index.html" style="color:#555;text-decoration:none;">首页</a></li>
-          <li><a href="strategy.html" style="color:#7B35C6;font-weight:600;">营销策略</a></li>
-          <li><a href="content.html" style="color:#555;text-decoration:none;">内容营销</a></li>
-          <li><a href="data.html" style="color:#555;text-decoration:none;">数据分析</a></li>
-          <li><a href="tools.html" style="color:#555;text-decoration:none;">工具资源</a></li>
-          <li><a href="articles.html" style="color:#555;text-decoration:none;">精选文章</a></li>
-        </ul>
-      </nav>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Marketing<span>Plus</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="strategy.html">营销策略</a></li>
+        <li><a href="content.html">内容营销</a></li>
+        <li><a href="data.html">数据分析</a></li>
+        <li><a href="tools.html">工具资源</a></li>
+        <li><a href="articles.html">精选文章</a></li>
+      </ul>
     </div>
-  </header>
-
-  <div class="page-header">
+  </nav>
+  <div class="page-hero" style="background: linear-gradient(135deg, #7B35C6, #666CD8);">
     <h1>📊 营销策略</h1>
     <p>从0到1搭建品牌营销体系，制定可落地的增长策略</p>
   </div>
-
-  <div class="zhihu-layout">
-    <div class="zhihu-main">
-      <h2 style="margin:0 0 20px;font-size:1.3rem;">全部文章</h2>
-      <div class="article-list">
-        <article class="article-item">
-          <h3><a href="#">品牌定位：找到你的独特市场位置</a></h3>
-          <p class="excerpt">品牌定位是营销的第一步，也是最关键的一步。本文将教你如何通过市场调研、竞品分析和用户洞察，找到品牌的独特定位...</p>
-          <div class="meta">
-            <span>👁️ 2,456 阅读</span>
-            <span>👍 128 赞同</span>
-            <span>📅 2026-04-15</span>
-          </div>
-        </article>
-        <article class="article-item">
-          <h3><a href="#">用户画像绘制：让你的营销更精准</a></h3>
-          <p class="excerpt">了解你的目标用户是营销成功的关键。学会用数据驱动的方式绘制精确的用户画像，提升营销效率和转化率...</p>
-          <div class="meta">
-            <span>👁️ 1,892 阅读</span>
-            <span>👍 95 赞同</span>
-            <span>📅 2026-04-10</span>
-          </div>
-        </article>
-        <article class="article-item">
-          <h3><a href="#">竞争分析：知己知彼的实战方法</a></h3>
-          <p class="excerpt">全面的竞争分析能帮助你找到市场机会。本文介绍实用的竞争情报收集和分析方法...</p>
-          <div class="meta">
-            <span>👁️ 1,543 阅读</span>
-            <span>👍 76 赞同</span>
-            <span>📅 2026-04-05</span>
-          </div>
-        </article>
-        <article class="article-item">
-          <h3><a href="#">营销漏斗优化：从曝光到转化的全链路</a></h3>
-          <p class="excerpt">营销漏斗是评估营销效果的核心模型。学习如何分析并优化每个环节的转化率...</p>
-          <div class="meta">
-            <span>👁️ 2,108 阅读</span>
-            <span>👍 112 赞同</span>
-            <span>📅 2026-03-28</span>
-          </div>
-        </article>
-        <article class="article-item">
-          <h3><a href="#">B2B营销策略：企业级市场的增长之道</a></h3>
-          <p class="excerpt">B2B营销有其独特性。本文分享针对企业客户的营销策略和实操案例...</p>
-          <div class="meta">
-            <span>👁️ 1,234 阅读</span>
-            <span>👍 67 赞同</span>
-            <span>📅 2026-03-20</span>
-          </div>
-        </article>
-      </div>
-    </div>
-    <aside class="zhihu-sidebar">
-      <div class="sidebar-block">
-        <h4>📂 分类</h4>
-        <div class="category-tags">
-          <a href="strategy.html">品牌定位</a>
-          <a href="#">用户洞察</a>
-          <a href="#">竞争分析</a>
-          <a href="#">营销漏斗</a>
-          <a href="#">B2B营销</a>
+  <div class="zh-layout">
+    <div class="zh-main">
+      <div class="zh-title">全部文章</div>
+      <div class="art-item">
+        <h3><a href="#">品牌定位：找到你的独特市场位置</a></h3>
+        <p>品牌定位是营销的第一步，也是最关键的一步。通过市场调研、竞品分析和用户洞察，找到品牌的独特定位。</p>
+        <div class="art-meta">
+          <span>👁 2,456 阅读</span>
+          <span>👍 128 赞同</span>
+          <span>📅 2026-04-15</span>
+        </div>
+      </div>      <div class="art-item">
+        <h3><a href="#">用户画像绘制：让你的营销更精准</a></h3>
+        <p>了解你的目标用户是营销成功的关键。学会用数据驱动的方式绘制精确的用户画像，提升营销效率。</p>
+        <div class="art-meta">
+          <span>👁 1,892 阅读</span>
+          <span>👍 95 赞同</span>
+          <span>📅 2026-04-10</span>
+        </div>
+      </div>      <div class="art-item">
+        <h3><a href="#">竞争分析：知己知彼的实战方法</a></h3>
+        <p>全面的竞争分析能帮助你找到市场机会。介绍实用的竞争情报收集和分析方法。</p>
+        <div class="art-meta">
+          <span>👁 1,543 阅读</span>
+          <span>👍 76 赞同</span>
+          <span>📅 2026-04-05</span>
+        </div>
+      </div>      <div class="art-item">
+        <h3><a href="#">营销漏斗优化：从曝光到转化的全链路</a></h3>
+        <p>营销漏斗是评估营销效果的核心模型。学习如何分析并优化每个环节的转化率。</p>
+        <div class="art-meta">
+          <span>👁 2,108 阅读</span>
+          <span>👍 112 赞同</span>
+          <span>📅 2026-03-28</span>
+        </div>
+      </div>      <div class="art-item">
+        <h3><a href="#">B2B营销策略：企业级市场的增长之道</a></h3>
+        <p>B2B营销有其独特性。分享针对企业客户的营销策略和实操案例。</p>
+        <div class="art-meta">
+          <span>👁 1,234 阅读</span>
+          <span>👍 67 赞同</span>
+          <span>📅 2026-03-20</span>
         </div>
       </div>
-      <div class="sidebar-block">
+    </div>
+    <aside class="zh-sidebar">
+      <div class="sb-block">
+        <h4>📂 分类标签</h4>
+        <ul>
+          <li><a href="#">品牌定位</a></li>
+          <li><a href="#">用户洞察</a></li>
+          <li><a href="#">竞争分析</a></li>
+          <li><a href="#">营销漏斗</a></li>
+          <li><a href="#">B2B营销</a></li>
+        </ul>
+      </div>
+      <div class="sb-block">
         <h4>🔥 热门文章</h4>
         <ul>
           <li><a href="#">品牌建设的底层逻辑</a></li>
@@ -129,20 +140,18 @@
           <li><a href="#">私域流量运营宝典</a></li>
         </ul>
       </div>
-      <div class="sidebar-block">
+      <div class="sb-block">
         <h4>💡 快速入口</h4>
         <ul>
           <li><a href="index.html">← 返回首页</a></li>
-          <li><a href="articles.html">精选文章</a></li>
           <li><a href="content.html">内容营销</a></li>
           <li><a href="data.html">数据分析</a></li>
+          <li><a href="articles.html">精选文章</a></li>
         </ul>
       </div>
+
     </aside>
   </div>
-
-  <footer id="footer" style="background:#1a1a2e;padding:30px 0;text-align:center;">
-    <p style="color:rgba(255,255,255,0.5);margin:0;">&copy; 2026 MarketingPlus. All rights reserved.</p>
-  </footer>
+  <footer class="footer"><p>© 2026 MarketingPlus. All rights reserved. | NEBULAR</p></footer>
 </body>
 </html>
