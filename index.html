@@ -39,9 +39,10 @@
 			/* 联系方式: 底部分开, 邮箱左微信右 */
 			.contact-icons {
 				display: flex;
-				justify-content: space-between;
+				justify-content: flex-start;
 				align-items: center;
 				padding: 0.6em 0 0.3em 0; }
+				gap: 1em;
 			.contact-icon {
 				position: relative;
 				cursor: pointer;
@@ -71,7 +72,8 @@
 				display: block;
 				border-radius: 4px; }
 			.wechat:hover .wechat-qr-popup { display: block; }
-		</style>
+			/* 清除邮箱图标下虚线 */
+			.contact-email { border-bottom: none !important; }</style>
 
 
 	<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/js/all.min.js"></script>
@@ -253,35 +255,9 @@
 
 </div>
 						</div>
-
-
-
-							<!-- Footer -->
-								
-						<!-- 联系方式 -->
-												<!-- 联系方式 -->
-						<div class="contact-icons">
-							<a href="mailto:meidan.wang@outlook.com" class="contact-icon contact-email" title="写邮件">
-								<span class="icon fas fa-envelope"></span>
-							</a>
-							<div class="contact-icon wechat" title="微信">
-								<span class="icon fab fa-weixin"></span>
-								<div class="wechat-qr-popup">
-									<img src="images/签名.png" alt="微信二维码" onerror="this.style.display='none'">
-									<p style="font-size:0.7em;color:#888;margin:4px 0 0 0;">marketingplus001</p>
-								</div>
-							</div>
-						</div>
-</div>
-						</div>
-
-						<footer id="footer">
-									<p class="copyright">&copy; 2024 MarketingPlus. 基于 <a href="https://html5up.net">HTML5 UP</a> 模板定制.</p>
-								</footer>
-				</div>
 					</div>
-
-			</div>
+				</div>
+</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
