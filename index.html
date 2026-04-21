@@ -1,1360 +1,325 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="MarketingPlus - 专注2B品牌市场营销的专业内容平台，为品牌市场人提供深度文章、实战案例与行业洞察。" />
-  <meta name="keywords" content="品牌营销, 市场运营, B2B营销, 市场营销, 品牌策略" />
-  <meta property="og:title" content="MarketingPlus - 品牌市场营销专业内容平台" />
-  <meta property="og:description" content="专注2B品牌市场营销的专业内容平台，为品牌市场人提供深度文章、实战案例与行业洞察。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.marketingplus.top" />
-  <title>MarketingPlus - 品牌市场营销专业内容平台</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ============================================
-       CSS Variables & Reset
-    ============================================ */
-    :root {
-      --color-primary: #2563EB;
-      --color-primary-dark: #1D4ED8;
-      --color-primary-light: #3B82F6;
-      --color-primary-50: #EFF6FF;
-      --color-secondary: #1E3A5F;
-      --color-accent: #F59E0B;
-      --color-accent-light: #FEF3C7;
-      --color-text-dark: #0F172A;
-      --color-text: #334155;
-      --color-text-light: #64748B;
-      --color-text-lighter: #94A3B8;
-      --color-bg: #FFFFFF;
-      --color-bg-soft: #F8FAFC;
-      --color-bg-section: #F1F5F9;
-      --color-border: #E2E8F0;
-      --color-border-light: #F1F5F9;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
-      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.03);
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --container-max: 1200px;
-      --container-content: 800px;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--color-text);
-      background: var(--color-bg);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-
-    /* ============================================
-       Layout Utilities
-    ============================================ */
-    .container {
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .container--narrow {
-      max-width: var(--container-content);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .section {
-      padding: 80px 0;
-    }
-
-    .section--soft {
-      background: var(--color-bg-soft);
-    }
-
-    .section--dark {
-      background: var(--color-secondary);
-      color: #fff;
-    }
-
-    .section__eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--color-primary);
-      margin-bottom: 16px;
-    }
-
-    .section__eyebrow::before {
-      content: '';
-      width: 20px;
-      height: 2px;
-      background: var(--color-primary);
-      border-radius: 2px;
-    }
-
-    .section__title {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 800;
-      color: var(--color-text-dark);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .section--dark .section__title {
-      color: #fff;
-    }
-
-    .section__subtitle {
-      font-size: 17px;
-      color: var(--color-text-light);
-      max-width: 580px;
-      line-height: 1.7;
-    }
-
-    .section--dark .section__subtitle {
-      color: rgba(255,255,255,0.7);
-    }
-
-    /* ============================================
-       Header / Navigation
-    ============================================ */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-border);
-      transition: var(--transition);
-    }
-
-    .header.scrolled {
-      box-shadow: var(--shadow-sm);
-    }
-
-    .header__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-
-    .header__logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--color-text-dark);
-    }
-
-    .header__logo-mark {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 800;
-      font-size: 14px;
-      letter-spacing: -0.5px;
-    }
-
-    .header__logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .header__logo-text span:last-child {
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--color-text-lighter);
-      letter-spacing: 0.5px;
-    }
-
-    .header__nav {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .header__nav a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--color-text-light);
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-      transition: var(--transition);
-    }
-
-    .header__nav a:hover {
-      color: var(--color-primary);
-      background: var(--color-primary-50);
-    }
-
-    .header__cta {
-      background: var(--color-primary);
-      color: #fff !important;
-      padding: 8px 18px !important;
-      border-radius: var(--radius-sm) !important;
-      font-weight: 600 !important;
-    }
-
-    .header__cta:hover {
-      background: var(--color-primary-dark) !important;
-    }
-
-    .header__mobile-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      color: var(--color-text);
-    }
-
-    /* ============================================
-       Hero Section
-    ============================================ */
-    .hero {
-      padding: 140px 0 80px;
-      background: linear-gradient(165deg, #EFF6FF 0%, #F8FAFC 40%, #fff 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px;
-      left: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(37,99,235,0.04) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--color-primary-50);
-      border: 1px solid rgba(37,99,235,0.15);
-      color: var(--color-primary);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-    }
-
-    .hero__badge::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--color-primary);
-      border-radius: 50%;
-    }
-
-    .hero__title {
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 900;
-      color: var(--color-text-dark);
-      line-height: 1.15;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
-    }
-
-    .hero__title .highlight {
-      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero__desc {
-      font-size: 17px;
-      color: var(--color-text-light);
-      line-height: 1.8;
-      margin-bottom: 32px;
-      max-width: 480px;
-    }
-
-    .hero__actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 11px 22px;
-      border-radius: var(--radius-sm);
-      transition: var(--transition);
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .btn--primary {
-      background: var(--color-primary);
-      color: #fff;
-    }
-
-    .btn--primary:hover {
-      background: var(--color-primary-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-    }
-
-    .btn--outline {
-      background: transparent;
-      color: var(--color-text);
-      border: 1px solid var(--color-border);
-    }
-
-    .btn--outline:hover {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-      background: var(--color-primary-50);
-    }
-
-    .btn--large {
-      padding: 13px 28px;
-      font-size: 15px;
-    }
-
-    .hero__stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 40px;
-      padding-top: 32px;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .hero__stat {
-      text-align: left;
-    }
-
-    .hero__stat-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--color-text-dark);
-      line-height: 1;
-    }
-
-    .hero__stat-label {
-      font-size: 12px;
-      color: var(--color-text-lighter);
-      margin-top: 4px;
-    }
-
-    /* Hero Visual */
-    .hero__visual {
-      position: relative;
-    }
-
-    .hero__card-stack {
-      position: relative;
-      perspective: 1000px;
-    }
-
-    .hero__card {
-      background: #fff;
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow-xl);
-      border: 1px solid var(--color-border);
-    }
-
-    .hero__card--main {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero__card--float {
-      position: absolute;
-      top: 30px;
-      left: -30px;
-      width: 220px;
-      z-index: 1;
-      opacity: 0.7;
-      transform: rotate(-3deg);
-    }
-
-    .hero__card-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-    }
-
-    .tag--blue {
-      background: var(--color-primary-50);
-      color: var(--color-primary);
-    }
-
-    .tag--amber {
-      background: var(--color-accent-light);
-      color: var(--color-accent);
-    }
-
-    .tag--green {
-      background: #D1FAE5;
-      color: #059669;
-    }
-
-    .hero__card-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--color-text-dark);
-      line-height: 1.4;
-      margin-bottom: 10px;
-    }
-
-    .hero__card-meta {
-      font-size: 12px;
-      color: var(--color-text-lighter);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hero__card-divider {
-      height: 1px;
-      background: var(--color-border);
-      margin: 16px 0;
-    }
-
-    .hero__card-bar {
-      height: 6px;
-      background: var(--color-bg-soft);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .hero__card-bar-fill {
-      height: 100%;
-      border-radius: 3px;
-      background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
-    }
-
-    /* ============================================
-       About / Value Section
-    ============================================ */
-    .about {
-      padding: 80px 0;
-    }
-
-    .about__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about__list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .about__item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .about__icon {
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-      background: var(--color-primary-50);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-
-    .about__item-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--color-text-dark);
-      margin-bottom: 4px;
-    }
-
-    .about__item-desc {
-      font-size: 13px;
-      color: var(--color-text-light);
-      line-height: 1.6;
-    }
-
-    /* ============================================
-       Content Section
-    ============================================ */
-    .content-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .content-card {
-      background: var(--color-bg);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      transition: var(--transition);
-    }
-
-    .content-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: transparent;
-    }
-
-    .content-card__image {
-      height: 160px;
-      background: linear-gradient(135deg, var(--color-primary-50), var(--color-bg-soft));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-    }
-
-    .content-card__body {
-      padding: 20px;
-    }
-
-    .content-card__type {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--color-primary);
-      margin-bottom: 8px;
-    }
-
-    .content-card__title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--color-text-dark);
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-
-    .content-card__desc {
-      font-size: 13px;
-      color: var(--color-text-light);
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .content-card__footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--color-text-lighter);
-    }
-
-    .content-card__date::before {
-      content: '📅 ';
-    }
-
-    .content-card__read::before {
-      content: '⏱ ';
-    }
-
-    /* ============================================
-       Cooperation Section
-    ============================================ */
-    .cooperation {
-      padding: 80px 0;
-      background: var(--color-secondary);
-      color: #fff;
-    }
-
-    .coop__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-top: 40px;
-    }
-
-    .coop__steps {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .coop__step {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .coop__step-num {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--color-accent);
-    }
-
-    .coop__step-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-
-    .coop__step-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-    }
-
-    .coop__form {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-    }
-
-    .coop__form-title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .coop__form-sub {
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 24px;
-    }
-
-    .coop__form-item {
-      margin-bottom: 16px;
-    }
-
-    .coop__form-item label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
-    }
-
-    .coop__form-item input,
-    .coop__form-item textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--radius-sm);
-      padding: 10px 14px;
-      font-size: 14px;
-      color: #fff;
-      font-family: inherit;
-      transition: var(--transition);
-    }
-
-    .coop__form-item input::placeholder,
-    .coop__form-item textarea::placeholder {
-      color: rgba(255,255,255,0.35);
-    }
-
-    .coop__form-item input:focus,
-    .coop__form-item textarea:focus {
-      outline: none;
-      border-color: var(--color-accent);
-      background: rgba(255,255,255,0.12);
-    }
-
-    .coop__form-item textarea {
-      height: 80px;
-      resize: vertical;
-    }
-
-    .coop__form-submit {
-      width: 100%;
-      background: var(--color-accent);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .coop__form-submit:hover {
-      background: #D97706;
-      transform: translateY(-1px);
-    }
-
-    /* ============================================
-       Contact Section
-    ============================================ */
-    .contact {
-      padding: 80px 0;
-    }
-
-    .contact__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .contact__info {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .contact__item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .contact__item-icon {
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-      background: var(--color-primary-50);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-
-    .contact__item-label {
-      font-size: 12px;
-      color: var(--color-text-lighter);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 2px;
-    }
-
-    .contact__item-value {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--color-text-dark);
-    }
-
-    .contact__item-value a {
-      color: var(--color-primary);
-    }
-
-    .contact__item-value a:hover {
-      text-decoration: underline;
-    }
-
-    .contact__qr {
-      background: var(--color-bg-soft);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      text-align: center;
-      border: 1px solid var(--color-border);
-    }
-
-    .contact__qr-placeholder {
-      width: 180px;
-      height: 180px;
-      background: linear-gradient(135deg, var(--color-primary-50), var(--color-bg-section));
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-      margin: 0 auto 16px;
-    }
-
-    .contact__qr-note {
-      font-size: 13px;
-      color: var(--color-text-light);
-    }
-
-    /* ============================================
-       Footer
-    ============================================ */
-    .footer {
-      background: var(--color-text-dark);
-      color: rgba(255,255,255,0.6);
-      padding: 40px 0;
-    }
-
-    .footer__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer__logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #fff;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .footer__logo-mark {
-      width: 30px;
-      height: 30px;
-      background: var(--color-primary);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .footer__copy {
-      font-size: 13px;
-    }
-
-    .footer__links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer__links a {
-      font-size: 13px;
-      transition: var(--transition);
-    }
-
-    .footer__links a:hover {
-      color: #fff;
-    }
-
-    /* ============================================
-       Responsive
-    ============================================ */
-    @media (max-width: 900px) {
-      .hero__inner {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .hero__visual {
-        display: none;
-      }
-      .about__grid {
-        grid-template-columns: 1fr;
-      }
-      .content-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .coop__grid {
-        grid-template-columns: 1fr;
-      }
-      .contact__grid {
-        grid-template-columns: 1fr;
-      }
-      .header__nav {
-        display: none;
-      }
-      .header__mobile-toggle {
-        display: block;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero__stats {
-        gap: 20px;
-      }
-      .section {
-        padding: 60px 0;
-      }
-    }
-
-    /* ============================================
-       Animations
-    ============================================ */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate-in {
-      animation: fadeInUp 0.6s ease forwards;
-    }
-
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="MarketingPlus - 品牌市场营销专业内容平台，分享B2B品牌营销实战经验与行业洞察" />
+<title>MarketingPlus - 品牌市场营销专业内容平台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #FBF8F4;
+  --bg-warm: #F5F0E8;
+  --card: #FFFFFF;
+  --text-dark: #2C2825;
+  --text: #4A4540;
+  --text-light: #7A756D;
+  --text-lighter: #A9A49C;
+  --accent: #C9A86C;
+  --accent-dark: #B8945A;
+  --accent-light: #E8D9BE;
+  --border: #E8E4DE;
+  --border-light: #F0EDE8;
+  --shadow-sm: 0 2px 8px rgba(44,40,37,0.04);
+  --shadow-md: 0 4px 16px rgba(44,40,37,0.06);
+  --shadow-lg: 0 8px 32px rgba(44,40,37,0.08);
+  --radius: 12px;
+  --transition: 0.3s ease;
+  --font-serif: 'Noto Serif SC', Georgia, serif;
+  --font-sans: 'Noto Sans SC', -apple-system, sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit;transition:var(--transition)}
+img{max-width:100%;display:block}
+
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,248,244,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}
+.header__inner{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo__mark{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:12px;color:#fff}
+.logo__text{font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--text-dark)}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{font-size:14px;font-weight:500;color:var(--text-light);padding:6px 14px;border-radius:20px}
+.nav a:hover{color:var(--text-dark);background:var(--bg-warm)}
+.nav__toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}
+
+.hero{padding:120px 24px 50px;text-align:center;background:linear-gradient(180deg,var(--bg-warm) 0%,var(--bg) 100%)}
+.hero__title{font-family:var(--font-serif);font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--text-dark);line-height:1.3;margin-bottom:14px}
+.hero__desc{font-size:16px;color:var(--text-light);max-width:460px;margin:0 auto;line-height:1.8}
+
+.content{max-width:1200px;margin:0 auto;padding:30px 24px 80px}
+.content__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--border-light)}
+.content__title{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--text-dark)}
+.content__filter{display:flex;gap:8px}
+.filter-btn{font-size:13px;font-weight:500;padding:6px 14px;border-radius:16px;border:1px solid var(--border);background:transparent;color:var(--text-light);cursor:pointer;transition:var(--transition)}
+.filter-btn:hover,.filter-btn.active{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
+
+.masonry{column-count:3;column-gap:20px}
+.article-card{break-inside:avoid;margin-bottom:20px;background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border-light);box-shadow:var(--shadow-sm);transition:var(--transition)}
+.article-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--border)}
+.article-card__image{position:relative;background:linear-gradient(135deg,var(--bg-warm),var(--accent-light));display:flex;align-items:center;justify-content:center;font-size:40px;overflow:hidden}
+.article-card__image--lg{height:200px}
+.article-card__image--md{height:150px}
+.article-card__image--sm{height:110px}
+.article-card__tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:600;letter-spacing:0.5px;padding:4px 10px;border-radius:12px;background:rgba(255,255,255,0.92);color:var(--accent-dark)}
+.article-card__body{padding:18px}
+.article-card__title{font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--text-dark);line-height:1.5;margin-bottom:8px}
+.article-card__desc{font-size:14px;color:var(--text-light);line-height:1.7;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.article-card__footer{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text-lighter)}
+
+.quote-card{break-inside:avoid;margin-bottom:20px;background:linear-gradient(135deg,var(--accent-light) 0%,var(--bg-warm) 100%);border-radius:var(--radius);padding:28px 22px;border:1px solid var(--accent);position:relative}
+.quote-card__icon{font-size:36px;color:var(--accent);margin-bottom:8px;opacity:0.5;font-family:serif;line-height:1}
+.quote-card__text{font-family:var(--font-serif);font-size:17px;font-weight:500;color:var(--text-dark);line-height:1.7;margin-bottom:10px}
+.quote-card__author{font-size:13px;color:var(--text-light)}
+
+.tip-card{break-inside:avoid;margin-bottom:20px;background:var(--card);border-radius:var(--radius);padding:22px;border:1px solid var(--border-light);box-shadow:var(--shadow-sm)}
+.tip-card__icon{font-size:28px;margin-bottom:10px}
+.tip-card__title{font-family:var(--font-serif);font-size:15px;font-weight:600;color:var(--text-dark);margin-bottom:6px}
+.tip-card__text{font-size:13px;color:var(--text-light);line-height:1.7}
+
+.cooperation{background:var(--bg-warm);padding:50px 24px;border-top:1px solid var(--border-light)}
+.cooperation__inner{max-width:700px;margin:0 auto;text-align:center}
+.cooperation__title{font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--text-dark);margin-bottom:10px}
+.cooperation__desc{font-size:14px;color:var(--text-light);margin-bottom:20px;line-height:1.7}
+.cooperation__contact{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.contact-item{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--text)}
+.contact-item a{color:var(--accent-dark);font-weight:500}
+.contact-item a:hover{text-decoration:underline}
+
+.footer{background:var(--text-dark);color:rgba(255,255,255,0.55);padding:36px 24px;text-align:center}
+.footer__logo{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
+.footer__mark{width:26px;height:26px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:11px;color:#fff}
+.footer__text{font-family:var(--font-serif);font-size:15px;font-weight:600;color:#fff}
+.footer__copy{font-size:13px}
+
+@media(max-width:900px){
+  .masonry{column-count:2}
+  .nav{display:none}
+  .nav__toggle{display:block}
+}
+@media(max-width:600px){
+  .masonry{column-count:1}
+  .hero{padding:100px 20px 40px}
+  .content{padding:24px 16px 60px}
+  .content__header{flex-direction:column;align-items:flex-start;gap:10px}
+  .cooperation__contact{flex-direction:column;gap:12px}
+}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.animate-in{animation:fadeInUp 0.5s ease forwards}
+.delay-1{animation-delay:0.1s}
+.delay-2{animation-delay:0.2s}
+.delay-3{animation-delay:0.3s}
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="container">
-      <div class="header__inner">
-        <a href="#" class="header__logo">
-          <div class="header__logo-mark">MP</div>
-          <div class="header__logo-text">
-            <span>MarketingPlus</span>
-            <span>品牌市场营销</span>
-          </div>
-        </a>
-        <nav class="header__nav">
-          <a href="#about">关于平台</a>
-          <a href="#content">内容精选</a>
-          <a href="#coop">合作咨询</a>
-          <a href="#contact">联系我们</a>
-          <a href="#contact" class="header__cta">立即咨询</a>
-        </nav>
-        <button class="header__mobile-toggle" id="mobileToggle" aria-label="菜单">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M3 12h18M3 6h18M3 18h18"/>
-          </svg>
-        </button>
+<header class="header">
+  <div class="header__inner">
+    <a href="#" class="logo">
+      <div class="logo__mark">MP</div>
+      <span class="logo__text">MarketingPlus</span>
+    </a>
+    <nav class="nav">
+      <a href="#content">内容</a>
+      <a href="#cooperation">合作</a>
+      <a href="#contact">联系</a>
+    </nav>
+    <button class="nav__toggle" aria-label="菜单">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 class="hero__title">品牌市场营销，实战经验分享</h1>
+  <p class="hero__desc">聚焦B2B品牌营销，分享真实案例与方法论，帮助市场人少走弯路</p>
+</section>
+
+<section class="content" id="content">
+  <div class="content__header">
+    <h2 class="content__title">最新内容</h2>
+    <div class="content__filter">
+      <button class="filter-btn active">全部</button>
+      <button class="filter-btn">品牌策略</button>
+      <button class="filter-btn">内容营销</button>
+      <button class="filter-btn">SEM</button>
+    </div>
+  </div>
+
+  <div class="masonry">
+
+    <!-- Article 1 -->
+    <article class="article-card animate-in">
+      <div class="article-card__image article-card__image--lg">
+        <span class="article-card__tag">品牌策略</span>
+        📊
+      </div>
+      <div class="article-card__body">
+        <h3 class="article-card__title">B2B品牌营销策略规划实战指南</h3>
+        <p class="article-card__desc">系统梳理B2B品牌营销的底层逻辑与实操方法，从市场洞察到策略落地的完整路径。</p>
+        <div class="article-card__footer">
+          <span>2026-04-15</span>
+          <span>12分钟阅读</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Quote -->
+    <div class="quote-card animate-in delay-1">
+      <div class="quote-card__icon">"</div>
+      <p class="quote-card__text">好的品牌营销，不是让更多人知道你，而是让对的人记住你。</p>
+      <p class="quote-card__author">— MarketingPlus</p>
+    </div>
+
+    <!-- Article 2 -->
+    <article class="article-card animate-in delay-2">
+      <div class="article-card__image article-card__image--md">
+        <span class="article-card__tag">内容营销</span>
+        📝
+      </div>
+      <div class="article-card__body">
+        <h3 class="article-card__title">一周一更：如何在忙碌中持续产出高质量内容</h3>
+        <p class="article-card__desc">分享实用的内容创作流程与工具，帮助市场人在有限时间内保持稳定的内容输出节奏。</p>
+        <div class="article-card__footer">
+          <span>2026-04-10</span>
+          <span>10分钟阅读</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 3 -->
+    <article class="article-card animate-in delay-3">
+      <div class="article-card__image article-card__image--sm">
+        <span class="article-card__tag">SEM</span>
+        🎯
+      </div>
+      <div class="article-card__body">
+        <h3 class="article-card__title">SEM投放策略：如何科学规划ROI目标</h3>
+        <p class="article-card__desc">从预算分配到效果追踪，建立数据驱动的SEM投放决策体系。</p>
+        <div class="article-card__footer">
+          <span>2026-04-05</span>
+          <span>15分钟阅读</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tip Card -->
+    <div class="tip-card animate-in">
+      <div class="tip-card__icon">💡</div>
+      <div class="tip-card__title">每日一思</div>
+      <div class="tip-card__text">内容营销的核心不是生产内容，而是生产有价值的内容。在动笔之前，先问自己：这篇文章能解决读者什么问题？</div>
+    </div>
+
+    <!-- Article 4 -->
+    <article class="article-card animate-in delay-1">
+      <div class="article-card__image article-card__image--md">
+        <span class="article-card__tag">品牌策略</span>
+        🏢
+      </div>
+      <div class="article-card__body">
+        <h3 class="article-card__title">从0到1：初创B2B企业如何建立品牌认知</h3>
+        <p class="article-card__desc">预算有限、团队精简的初创企业，如何用最小成本建立专业可信的品牌形象。</p>
+        <div class="article-card__footer">
+          <span>2026-03-28</span>
+          <span>8分钟阅读</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 5 -->
+    <article class="article-card animate-in delay-2">
+      <div class="article-card__image article-card__image--lg">
+        <span class="article-card__tag">内容营销</span>
+        📈
+      </div>
+      <div class="article-card__body">
+        <h3 class="article-card__title">2026年B2B内容营销趋势报告</h3>
+        <p class="article-card__desc">基于50+企业调研数据，解读B2B内容营销的最新趋势与最佳实践，视频化、私域化、AI辅助成为三大关键词。</p>
+        <div class="article-card__footer">
+          <span>2026-03-20</span>
+          <span>20分钟阅读</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Quote 2 -->
+    <div class="quote-card animate-in delay-3">
+      <div class="quote-card__icon">"</div>
+      <p class="quote-card__text">在B2B领域，信任是最高效的获客方式。内容营销的本质，就是持续建立专业信任。</p>
+      <p class="quote-card__author">— MarketingPlus</p>
+    </div>
+
+    <!-- Article 6 -->
+    <article class="article-card animate-in">
+      <div class="article-card__image article-card__image--sm">
+        <span class="article-card__tag">SEM</span>
+        🔍
+      </div>
+      <div class="article-card__body">
+        <h3 class="article-card__title">关键词研究：找到高转化低竞争的机会词</h3>
+        <p class="article-card__desc">分享一套实用的关键词研究方法，帮助你在SEM投放中发现被忽视的流量机会。</p>
+        <div class="article-card__footer">
+          <span>2026-03-15</span>
+          <span>10分钟阅读</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 7 -->
+    <article class="article-card animate-in delay-1">
+      <div class="article-card__image article-card__image--md">
+        <span class="article-card__tag">品牌策略</span>
+        🎨
+      </div>
+      <div class="article-card__body">
+        <h3 class="article-card__title">品牌视觉体系搭建：从Logo到全套VI</h3>
+        <p class="article-card__desc">没有设计师预算？教你如何用低成本工具搭建专业一致的品牌视觉体系。</p>
+        <div class="article-card__footer">
+          <span>2026-03-08</span>
+          <span>14分钟阅读</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tip Card 2 -->
+    <div class="tip-card animate-in delay-2">
+      <div class="tip-card__icon">🎯</div>
+      <div class="tip-card__title">工具推荐</div>
+      <div class="tip-card__text">Notion + Canva + 剪映 = B2B市场人的内容生产三件套。用Notion管理选题，Canva做图，剪映剪视频，效率提升3倍。</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cooperation" id="cooperation">
+  <div class="cooperation__inner">
+    <h3 class="cooperation__title">商务合作</h3>
+    <p class="cooperation__desc">如需咨询或合作，欢迎联系</p>
+    <div class="cooperation__contact">
+      <div class="contact-item">
+        <span>✉️</span>
+        <a href="mailto:meidan.wang@outlook.com">meidan.wang@outlook.com</a>
+      </div>
+      <div class="contact-item">
+        <span>💬</span>
+        <span>marketingplus001</span>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero__inner">
-        <div class="hero__content">
-          <div class="hero__badge">专业内容平台</div>
-          <h1 class="hero__title">
-            专注<span class="highlight">品牌市场营销</span><br>
-            赋能2B增长
-          </h1>
-          <p class="hero__desc">
-            MarketingPlus 是面向品牌市场营销从业者的专业内容平台，汇聚深度文章、行业案例与实操视频，帮助市场人突破认知边界，提升专业能力。
-          </p>
-          <div class="hero__actions">
-            <a href="#content" class="btn btn--primary btn--large">
-              探索内容
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#coop" class="btn btn--outline btn--large">咨询合作</a>
-          </div>
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <div class="hero__stat-value">50+</div>
-              <div class="hero__stat-label">深度文章</div>
-            </div>
-            <div class="hero__stat">
-              <div class="hero__stat-value">20+</div>
-              <div class="hero__stat-label">实战案例</div>
-            </div>
-            <div class="hero__stat">
-              <div class="hero__stat-value">1000+</div>
-              <div class="hero__stat-label">市场人用户</div>
-            </div>
-          </div>
-        </div>
-        <div class="hero__visual">
-          <div class="hero__card-stack">
-            <div class="hero__card hero__card--main">
-              <div class="hero__card-tag tag--blue">📌 最新文章</div>
-              <div class="hero__card-title">B2B品牌如何通过内容营销实现精准获客</div>
-              <div class="hero__card-meta">
-                <span>市场策略</span>
-                <span>·</span>
-                <span>12分钟阅读</span>
-              </div>
-              <div class="hero__card-divider"></div>
-              <div style="margin-bottom:6px;font-size:12px;color:#64748B;font-weight:600;">内容深度评分</div>
-              <div class="hero__card-bar" style="margin-bottom:4px"><div class="hero__card-bar-fill" style="width:92%"></div></div>
-              <div style="font-size:11px;color:#94A3B8">基于读者反馈 · 92%推荐</div>
-            </div>
-            <div class="hero__card hero__card--float">
-              <div class="hero__card-tag tag--amber">🎥 视频课程</div>
-              <div class="hero__card-title">品牌定位全流程拆解</div>
-              <div class="hero__card-meta">8集 · 实战系列</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="about__grid">
-        <div>
-          <div class="section__eyebrow">关于平台</div>
-          <h2 class="section__title">为什么选择<br>MarketingPlus</h2>
-          <p class="section__subtitle">
-            我们相信，真正的品牌增长来自专业认知的积累与实践经验的分享。MarketingPlus 致力于为2B市场人打造高密度、高价值的专业内容平台。
-          </p>
-        </div>
-        <div class="about__list">
-          <div class="about__item">
-            <div class="about__icon">📝</div>
-            <div>
-              <div class="about__item-title">深度专业文章</div>
-              <div class="about__item-desc">聚焦品牌策略、市场运营、内容营销、数据分析等核心领域，每篇文章均经过专业审核。</div>
-            </div>
-          </div>
-          <div class="about__item">
-            <div class="about__icon">🎥</div>
-            <div>
-              <div class="about__item-title">实战视频课程</div>
-              <div class="about__item-desc">从真实案例出发，系统拆解品牌营销全流程，覆盖从策略制定到执行落地的完整链路。</div>
-            </div>
-          </div>
-          <div class="about__item">
-            <div class="about__icon">🤝</div>
-            <div>
-              <div class="about__item-title">一对一咨询对接</div>
-              <div class="about__item-desc">为有品牌建设、市场推广、供应商对接需求的团队提供专业咨询服务，高效匹配解决方案。</div>
-            </div>
-          </div>
-          <div class="about__item">
-            <div class="about__icon">📊</div>
-            <div>
-              <div class="about__item-title">数据驱动决策</div>
-              <div class="about__item-desc">用数据验证假设，用分析指导行动，帮助市场人建立以数据为核心的决策思维。</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Content Showcase -->
-  <section class="section section--soft" id="content">
-    <div class="container">
-      <div class="section__eyebrow">内容精选</div>
-      <h2 class="section__title">专业内容，持续更新</h2>
-      <p class="section__subtitle">
-        涵盖品牌策略、内容营销、渠道运营、数据分析等核心主题，为市场人提供系统化的知识体系。
-      </p>
-      <div class="content-grid">
-        <article class="content-card">
-          <div class="content-card__image">📊</div>
-          <div class="content-card__body">
-            <div class="content-card__type">市场策略</div>
-            <h3 class="content-card__title">B2B品牌如何通过内容营销实现精准获客</h3>
-            <p class="content-card__desc">从需求洞察到内容矩阵搭建，系统解析B2B企业内容营销的全链路打法。</p>
-            <div class="content-card__footer">
-              <span class="content-card__date">2026-04-15</span>
-              <span class="content-card__read">12分钟阅读</span>
-            </div>
-          </div>
-        </article>
-        <article class="content-card">
-          <div class="content-card__image">🎯</div>
-          <div class="content-card__body">
-            <div class="content-card__type">品牌建设</div>
-            <h3 class="content-card__title">从0到1：初创品牌如何建立市场认知</h3>
-            <p class="content-card__desc">初创团队资源有限，如何通过精准定位与内容策略快速建立品牌市场认知。</p>
-            <div class="content-card__footer">
-              <span class="content-card__date">2026-04-10</span>
-              <span class="content-card__read">10分钟阅读</span>
-            </div>
-          </div>
-        </article>
-        <article class="content-card">
-          <div class="content-card__image">📱</div>
-          <div class="content-card__body">
-            <div class="content-card__type">运营实操</div>
-            <h3 class="content-card__title">SEM投放优化：如何用数据驱动ROI提升</h3>
-            <p class="content-card__desc">深度拆解SEM投放的全流程数据追踪与优化策略，让每一分预算都花在刀刃上。</p>
-            <div class="content-card__footer">
-              <span class="content-card__date">2026-04-05</span>
-              <span class="content-card__read">15分钟阅读</span>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div style="text-align:center;margin-top:40px;">
-        <a href="#" class="btn btn--outline">查看全部内容 →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cooperation -->
-  <section class="cooperation" id="coop">
-    <div class="container">
-      <div class="section__eyebrow" style="color:rgba(255,255,255,0.6);">合作咨询</div>
-      <div class="section__eyebrow" style="color:rgba(255,255,255,0.6);" id="coop-title">一对一咨询对接</div>
-      <h2 class="section__title">专业顾问，为你赋能</h2>
-      <p class="section__subtitle">
-        无论是品牌战略规划、市场推广方案还是供应商资源对接，我们都提供一对一的咨询服务，帮你找到最优解。
-      </p>
-      <div class="coop__grid">
-        <div class="coop__steps">
-          <div class="coop__step">
-            <div class="coop__step-num">01</div>
-            <div>
-              <div class="coop__step-title">需求沟通</div>
-              <div class="coop__step-desc">通过微信或邮件深入了解你的业务现状、目标与挑战，确保服务精准匹配。</div>
-            </div>
-          </div>
-          <div class="coop__step">
-            <div class="coop__step-num">02</div>
-            <div>
-              <div class="coop__step-title">方案定制</div>
-              <div class="coop__step-desc">根据沟通结果，提供针对性的品牌策略、内容规划或运营方案，清晰可执行。</div>
-            </div>
-          </div>
-          <div class="coop__step">
-            <div class="coop__step-num">03</div>
-            <div>
-              <div class="coop__step-title">执行落地</div>
-              <div class="coop__step-desc">协助方案落地，提供实施建议、工具推荐与进度跟踪，确保结果可衡量。</div>
-            </div>
-          </div>
-          <div class="coop__step">
-            <div class="coop__step-num">04</div>
-            <div>
-              <div class="coop__step-title">持续迭代</div>
-              <div class="coop__step-desc">定期复盘效果，基于数据反馈持续优化策略，陪伴你的品牌持续增长。</div>
-            </div>
-          </div>
-        </div>
-        <div class="coop__form">
-          <div class="coop__form-title">立即发起咨询</div>
-          <div class="coop__form-sub">填写以下信息，我们将在24小时内与你联系</div>
-          <form id="contactForm">
-            <div class="coop__form-item">
-              <label for="name">姓名</label>
-              <input type="text" id="name" name="name" placeholder="请输入你的姓名" />
-            </div>
-            <div class="coop__form-item">
-              <label for="company">公司</label>
-              <input type="text" id="company" name="company" placeholder="请输入你的公司名称" />
-            </div>
-            <div class="coop__form-item">
-              <label for="need">合作需求</label>
-              <textarea id="need" name="need" placeholder="请简要描述你的需求，如品牌策略、内容营销、SEM优化、供应商对接等"></textarea>
-            </div>
-            <button type="submit" class="coop__form-submit">提交咨询 →</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <div class="section__eyebrow">联系我们</div>
-      <h2 class="section__title">保持联系</h2>
-      <p class="section__subtitle">
-        有任何问题或合作意向，欢迎通过以下方式联系我们。
-      </p>
-      <div class="contact__grid" style="margin-top:40px;">
-        <div class="contact__info">
-          <div class="contact__item">
-            <div class="contact__item-icon">📧</div>
-            <div>
-              <div class="contact__item-label">邮箱</div>
-              <div class="contact__item-value">
-                <a href="mailto:meidan.wang@outlook.com">meidan.wang@outlook.com</a>
-              </div>
-            </div>
-          </div>
-          <div class="contact__item">
-            <div class="contact__item-icon">💬</div>
-            <div>
-              <div class="contact__item-label">微信</div>
-              <div class="contact__item-value">marketingplus001</div>
-            </div>
-          </div>
-          <div class="contact__item">
-            <div class="contact__item-icon">🌐</div>
-            <div>
-              <div class="contact__item-label">网站</div>
-              <div class="contact__item-value">
-                <a href="https://www.marketingplus.top">www.marketingplus.top</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="contact__qr">
-          <div class="contact__qr-placeholder">💬</div>
-          <div style="font-size:16px;font-weight:700;color:#0F172A;margin-bottom:6px;">扫码添加微信</div>
-          <div class="contact__qr-note">微信搜索：<strong>marketingplus001</strong><br>添加时请注明"品牌咨询"</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__logo">
-          <div class="footer__logo-mark">MP</div>
-          MarketingPlus
-        </div>
-        <div class="footer__copy">
-          © 2026 MarketingPlus. 专注2B品牌市场营销专业内容平台.
-        </div>
-        <div class="footer__links">
-          <a href="#about">关于平台</a>
-          <a href="#content">内容精选</a>
-          <a href="#coop">合作咨询</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script>
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-      var header = document.getElementById('header');
-      if (window.scrollY > 10) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          var offset = 64;
-          var top = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top: top, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Form submission (localStorage demo)
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var name = document.getElementById('name').value;
-      var company = document.getElementById('company').value;
-      var need = document.getElementById('need').value;
-      if (!name || !need) {
-        alert('请填写姓名和需求');
-        return;
-      }
-      var data = { name: name, company: company, need: need, time: new Date().toLocaleString() };
-      var existing = JSON.parse(localStorage.getItem('mp_contacts') || '[]');
-      existing.push(data);
-      localStorage.setItem('mp_contacts', JSON.stringify(existing));
-      var btn = this.querySelector('button[type="submit"]');
-      btn.textContent = '✅ 提交成功！我们将尽快联系你';
-      btn.style.background = '#059669';
-      this.reset();
-      setTimeout(function() {
-        btn.textContent = '提交咨询 →';
-        btn.style.background = '';
-      }, 4000);
-    });
-
-    // Intersection Observer for animations
-    if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.content-card, .about__item, .coop__step').forEach(function(el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(el);
-      });
-    }
-  </script>
+<footer class="footer" id="contact">
+  <div class="footer__logo">
+    <div class="footer__mark">MP</div>
+    <span class="footer__text">MarketingPlus</span>
+  </div>
+  <p class="footer__copy">专注B2B品牌市场营销 · 实战经验分享</p>
+</footer>
 
 </body>
 </html>
