@@ -1,325 +1,209 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="MarketingPlus - 品牌市场营销专业内容平台，分享B2B品牌营销实战经验与行业洞察" />
-<title>MarketingPlus - 品牌市场营销专业内容平台</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<style>
-:root {
-  --bg: #FBF8F4;
-  --bg-warm: #F5F0E8;
-  --card: #FFFFFF;
-  --text-dark: #2C2825;
-  --text: #4A4540;
-  --text-light: #7A756D;
-  --text-lighter: #A9A49C;
-  --accent: #C9A86C;
-  --accent-dark: #B8945A;
-  --accent-light: #E8D9BE;
-  --border: #E8E4DE;
-  --border-light: #F0EDE8;
-  --shadow-sm: 0 2px 8px rgba(44,40,37,0.04);
-  --shadow-md: 0 4px 16px rgba(44,40,37,0.06);
-  --shadow-lg: 0 8px 32px rgba(44,40,37,0.08);
-  --radius: 12px;
-  --transition: 0.3s ease;
-  --font-serif: 'Noto Serif SC', Georgia, serif;
-  --font-sans: 'Noto Sans SC', -apple-system, sans-serif;
-}
+<!DOCTYPE HTML>
+<!--
+	MarketingPlus - 品牌市场人内容平台
+	基于 Editorial 模板定制
+-->
+<html>
+	<head>
+		<title>MarketingPlus - 品牌市场人的内容平台</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="为零IT经验的品牌市场人搭建零成本专业内容网站" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit;transition:var(--transition)}
-img{max-width:100%;display:block}
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,248,244,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}
-.header__inner{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px}
-.logo__mark{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:12px;color:#fff}
-.logo__text{font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--text-dark)}
-.nav{display:flex;align-items:center;gap:4px}
-.nav a{font-size:14px;font-weight:500;color:var(--text-light);padding:6px 14px;border-radius:20px}
-.nav a:hover{color:var(--text-dark);background:var(--bg-warm)}
-.nav__toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
 
-.hero{padding:120px 24px 50px;text-align:center;background:linear-gradient(180deg,var(--bg-warm) 0%,var(--bg) 100%)}
-.hero__title{font-family:var(--font-serif);font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--text-dark);line-height:1.3;margin-bottom:14px}
-.hero__desc{font-size:16px;color:var(--text-light);max-width:460px;margin:0 auto;line-height:1.8}
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>MarketingPlus</strong></a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-weixin"><span class="label">微信</span></a></li>
+										<li><a href="mailto:meidan.wang@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
 
-.content{max-width:1200px;margin:0 auto;padding:30px 24px 80px}
-.content__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--border-light)}
-.content__title{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--text-dark)}
-.content__filter{display:flex;gap:8px}
-.filter-btn{font-size:13px;font-weight:500;padding:6px 14px;border-radius:16px;border:1px solid var(--border);background:transparent;color:var(--text-light);cursor:pointer;transition:var(--transition)}
-.filter-btn:hover,.filter-btn.active{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1>品牌市场人的<br />内容创作平台</h1>
+											<p>为零IT经验的品牌市场人搭建零成本专业内容网站</p>
+										</header>
+										<p>我们提供最实用的品牌营销内容、案例分析和实战技巧，帮助品牌市场人提升工作效率，打造专业形象。</p>
+										<ul class="actions">
+											<li><a href="#posts" class="button big">浏览内容</a></li>
+										</ul>
+									</div>
+									<span class="image object">
+										<img src="images/pic10.jpg" alt="MarketingPlus" />
+									</span>
+								</section>
 
-.masonry{column-count:3;column-gap:20px}
-.article-card{break-inside:avoid;margin-bottom:20px;background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border-light);box-shadow:var(--shadow-sm);transition:var(--transition)}
-.article-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--border)}
-.article-card__image{position:relative;background:linear-gradient(135deg,var(--bg-warm),var(--accent-light));display:flex;align-items:center;justify-content:center;font-size:40px;overflow:hidden}
-.article-card__image--lg{height:200px}
-.article-card__image--md{height:150px}
-.article-card__image--sm{height:110px}
-.article-card__tag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:600;letter-spacing:0.5px;padding:4px 10px;border-radius:12px;background:rgba(255,255,255,0.92);color:var(--accent-dark)}
-.article-card__body{padding:18px}
-.article-card__title{font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--text-dark);line-height:1.5;margin-bottom:8px}
-.article-card__desc{font-size:14px;color:var(--text-light);line-height:1.7;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.article-card__footer{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text-lighter)}
+							<!-- Section - Features -->
+								<section>
+									<header class="major">
+										<h2>核心内容</h2>
+									</header>
+									<div class="features">
+										<article>
+											<span class="icon solid fa-bullhorn"></span>
+											<div class="content">
+												<h3>品牌营销</h3>
+												<p>品牌策略、营销推广、内容运营等实战经验分享</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-chart-line"></span>
+											<div class="content">
+												<h3>数据分析</h3>
+												<p>SEO/SEM 技巧、流量分析、转化优化等专业教程</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-pen-nib"></span>
+											<div class="content">
+												<h3>内容创作</h3>
+												<p>文案写作、视觉设计、社交媒体运营指南</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-lightbulb"></span>
+											<div class="content">
+												<h3>案例分析</h3>
+												<p>国内外品牌营销案例拆解，借鉴优秀实践经验</p>
+											</div>
+										</article>
+									</div>
+								</section>
 
-.quote-card{break-inside:avoid;margin-bottom:20px;background:linear-gradient(135deg,var(--accent-light) 0%,var(--bg-warm) 100%);border-radius:var(--radius);padding:28px 22px;border:1px solid var(--accent);position:relative}
-.quote-card__icon{font-size:36px;color:var(--accent);margin-bottom:8px;opacity:0.5;font-family:serif;line-height:1}
-.quote-card__text{font-family:var(--font-serif);font-size:17px;font-weight:500;color:var(--text-dark);line-height:1.7;margin-bottom:10px}
-.quote-card__author{font-size:13px;color:var(--text-light)}
+							<!-- Section - Posts -->
+							<section id="posts">
+									<header class="major">
+										<h2>精选文章</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<h3>品牌定位与差异化策略</h3>
+											<p>如何通过精准的品牌定位，在竞争激烈的市场中脱颖而出，建立独特的品牌认知。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<h3>内容营销实战指南</h3>
+											<p>从0到1构建内容营销体系，提升品牌影响力和用户转化。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<h3>社交媒体运营技巧</h3>
+											<p>微信、微博、抖音等平台运营策略，帮你打造爆款内容。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+											<h3>SEO 入门与进阶</h3>
+											<p>搜索引擎优化基础教程，让你的内容获得更多免费流量。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<h3>品牌视觉设计原则</h3>
+											<p>非设计师也能学会的品牌视觉设计基础，打造专业形象。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+											<h3>数据驱动营销决策</h3>
+											<p>利用数据分析优化营销策略，让每一分钱都花在刀刃上。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+									</div>
+								</section>
 
-.tip-card{break-inside:avoid;margin-bottom:20px;background:var(--card);border-radius:var(--radius);padding:22px;border:1px solid var(--border-light);box-shadow:var(--shadow-sm)}
-.tip-card__icon{font-size:28px;margin-bottom:10px}
-.tip-card__title{font-family:var(--font-serif);font-size:15px;font-weight:600;color:var(--text-dark);margin-bottom:6px}
-.tip-card__text{font-size:13px;color:var(--text-light);line-height:1.7}
+						</div>
+					</div>
 
-.cooperation{background:var(--bg-warm);padding:50px 24px;border-top:1px solid var(--border-light)}
-.cooperation__inner{max-width:700px;margin:0 auto;text-align:center}
-.cooperation__title{font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--text-dark);margin-bottom:10px}
-.cooperation__desc{font-size:14px;color:var(--text-light);margin-bottom:20px;line-height:1.7}
-.cooperation__contact{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
-.contact-item{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--text)}
-.contact-item a{color:var(--accent-dark);font-weight:500}
-.contact-item a:hover{text-decoration:underline}
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
 
-.footer{background:var(--text-dark);color:rgba(255,255,255,0.55);padding:36px 24px;text-align:center}
-.footer__logo{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
-.footer__mark{width:26px;height:26px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:11px;color:#fff}
-.footer__text{font-family:var(--font-serif);font-size:15px;font-weight:600;color:#fff}
-.footer__copy{font-size:13px}
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="搜索文章..." />
+									</form>
+								</section>
 
-@media(max-width:900px){
-  .masonry{column-count:2}
-  .nav{display:none}
-  .nav__toggle{display:block}
-}
-@media(max-width:600px){
-  .masonry{column-count:1}
-  .hero{padding:100px 20px 40px}
-  .content{padding:24px 16px 60px}
-  .content__header{flex-direction:column;align-items:flex-start;gap:10px}
-  .cooperation__contact{flex-direction:column;gap:12px}
-}
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>导航</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">首页</a></li>
+										<li><a href="#posts">精选文章</a></li>
+										<li>
+											<span class="opener">内容分类</span>
+											<ul>
+												<li><a href="#">品牌营销</a></li>
+												<li><a href="#">数据分析</a></li>
+												<li><a href="#">内容创作</a></li>
+												<li><a href="#">案例分析</a></li>
+											</ul>
+										</li>
+										<li><a href="#">关于我们</a></li>
+										<li><a href="mailto:meidan.wang@outlook.com">联系我们</a></li>
+									</ul>
+								</nav>
 
-@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.animate-in{animation:fadeInUp 0.5s ease forwards}
-.delay-1{animation-delay:0.1s}
-.delay-2{animation-delay:0.2s}
-.delay-3{animation-delay:0.3s}
-</style>
-</head>
-<body>
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>联系我们</h2>
+									</header>
+									<p>有任何问题或合作意向，欢迎联系我们。</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope">meidan.wang@outlook.com</li>
+										<li class="icon brands fa-weixin">marketingplus001</li>
+									</ul>
+								</section>
 
-<header class="header">
-  <div class="header__inner">
-    <a href="#" class="logo">
-      <div class="logo__mark">MP</div>
-      <span class="logo__text">MarketingPlus</span>
-    </a>
-    <nav class="nav">
-      <a href="#content">内容</a>
-      <a href="#cooperation">合作</a>
-      <a href="#contact">联系</a>
-    </nav>
-    <button class="nav__toggle" aria-label="菜单">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-    </button>
-  </div>
-</header>
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; 2024 MarketingPlus. 基于 <a href="https://html5up.net">HTML5 UP</a> 模板定制.</p>
+								</footer>
 
-<section class="hero">
-  <h1 class="hero__title">品牌市场营销，实战经验分享</h1>
-  <p class="hero__desc">聚焦B2B品牌营销，分享真实案例与方法论，帮助市场人少走弯路</p>
-</section>
+						</div>
+					</div>
 
-<section class="content" id="content">
-  <div class="content__header">
-    <h2 class="content__title">最新内容</h2>
-    <div class="content__filter">
-      <button class="filter-btn active">全部</button>
-      <button class="filter-btn">品牌策略</button>
-      <button class="filter-btn">内容营销</button>
-      <button class="filter-btn">SEM</button>
-    </div>
-  </div>
+			</div>
 
-  <div class="masonry">
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-    <!-- Article 1 -->
-    <article class="article-card animate-in">
-      <div class="article-card__image article-card__image--lg">
-        <span class="article-card__tag">品牌策略</span>
-        📊
-      </div>
-      <div class="article-card__body">
-        <h3 class="article-card__title">B2B品牌营销策略规划实战指南</h3>
-        <p class="article-card__desc">系统梳理B2B品牌营销的底层逻辑与实操方法，从市场洞察到策略落地的完整路径。</p>
-        <div class="article-card__footer">
-          <span>2026-04-15</span>
-          <span>12分钟阅读</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Quote -->
-    <div class="quote-card animate-in delay-1">
-      <div class="quote-card__icon">"</div>
-      <p class="quote-card__text">好的品牌营销，不是让更多人知道你，而是让对的人记住你。</p>
-      <p class="quote-card__author">— MarketingPlus</p>
-    </div>
-
-    <!-- Article 2 -->
-    <article class="article-card animate-in delay-2">
-      <div class="article-card__image article-card__image--md">
-        <span class="article-card__tag">内容营销</span>
-        📝
-      </div>
-      <div class="article-card__body">
-        <h3 class="article-card__title">一周一更：如何在忙碌中持续产出高质量内容</h3>
-        <p class="article-card__desc">分享实用的内容创作流程与工具，帮助市场人在有限时间内保持稳定的内容输出节奏。</p>
-        <div class="article-card__footer">
-          <span>2026-04-10</span>
-          <span>10分钟阅读</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Article 3 -->
-    <article class="article-card animate-in delay-3">
-      <div class="article-card__image article-card__image--sm">
-        <span class="article-card__tag">SEM</span>
-        🎯
-      </div>
-      <div class="article-card__body">
-        <h3 class="article-card__title">SEM投放策略：如何科学规划ROI目标</h3>
-        <p class="article-card__desc">从预算分配到效果追踪，建立数据驱动的SEM投放决策体系。</p>
-        <div class="article-card__footer">
-          <span>2026-04-05</span>
-          <span>15分钟阅读</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Tip Card -->
-    <div class="tip-card animate-in">
-      <div class="tip-card__icon">💡</div>
-      <div class="tip-card__title">每日一思</div>
-      <div class="tip-card__text">内容营销的核心不是生产内容，而是生产有价值的内容。在动笔之前，先问自己：这篇文章能解决读者什么问题？</div>
-    </div>
-
-    <!-- Article 4 -->
-    <article class="article-card animate-in delay-1">
-      <div class="article-card__image article-card__image--md">
-        <span class="article-card__tag">品牌策略</span>
-        🏢
-      </div>
-      <div class="article-card__body">
-        <h3 class="article-card__title">从0到1：初创B2B企业如何建立品牌认知</h3>
-        <p class="article-card__desc">预算有限、团队精简的初创企业，如何用最小成本建立专业可信的品牌形象。</p>
-        <div class="article-card__footer">
-          <span>2026-03-28</span>
-          <span>8分钟阅读</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Article 5 -->
-    <article class="article-card animate-in delay-2">
-      <div class="article-card__image article-card__image--lg">
-        <span class="article-card__tag">内容营销</span>
-        📈
-      </div>
-      <div class="article-card__body">
-        <h3 class="article-card__title">2026年B2B内容营销趋势报告</h3>
-        <p class="article-card__desc">基于50+企业调研数据，解读B2B内容营销的最新趋势与最佳实践，视频化、私域化、AI辅助成为三大关键词。</p>
-        <div class="article-card__footer">
-          <span>2026-03-20</span>
-          <span>20分钟阅读</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Quote 2 -->
-    <div class="quote-card animate-in delay-3">
-      <div class="quote-card__icon">"</div>
-      <p class="quote-card__text">在B2B领域，信任是最高效的获客方式。内容营销的本质，就是持续建立专业信任。</p>
-      <p class="quote-card__author">— MarketingPlus</p>
-    </div>
-
-    <!-- Article 6 -->
-    <article class="article-card animate-in">
-      <div class="article-card__image article-card__image--sm">
-        <span class="article-card__tag">SEM</span>
-        🔍
-      </div>
-      <div class="article-card__body">
-        <h3 class="article-card__title">关键词研究：找到高转化低竞争的机会词</h3>
-        <p class="article-card__desc">分享一套实用的关键词研究方法，帮助你在SEM投放中发现被忽视的流量机会。</p>
-        <div class="article-card__footer">
-          <span>2026-03-15</span>
-          <span>10分钟阅读</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Article 7 -->
-    <article class="article-card animate-in delay-1">
-      <div class="article-card__image article-card__image--md">
-        <span class="article-card__tag">品牌策略</span>
-        🎨
-      </div>
-      <div class="article-card__body">
-        <h3 class="article-card__title">品牌视觉体系搭建：从Logo到全套VI</h3>
-        <p class="article-card__desc">没有设计师预算？教你如何用低成本工具搭建专业一致的品牌视觉体系。</p>
-        <div class="article-card__footer">
-          <span>2026-03-08</span>
-          <span>14分钟阅读</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- Tip Card 2 -->
-    <div class="tip-card animate-in delay-2">
-      <div class="tip-card__icon">🎯</div>
-      <div class="tip-card__title">工具推荐</div>
-      <div class="tip-card__text">Notion + Canva + 剪映 = B2B市场人的内容生产三件套。用Notion管理选题，Canva做图，剪映剪视频，效率提升3倍。</div>
-    </div>
-
-  </div>
-</section>
-
-<section class="cooperation" id="cooperation">
-  <div class="cooperation__inner">
-    <h3 class="cooperation__title">商务合作</h3>
-    <p class="cooperation__desc">如需咨询或合作，欢迎联系</p>
-    <div class="cooperation__contact">
-      <div class="contact-item">
-        <span>✉️</span>
-        <a href="mailto:meidan.wang@outlook.com">meidan.wang@outlook.com</a>
-      </div>
-      <div class="contact-item">
-        <span>💬</span>
-        <span>marketingplus001</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer" id="contact">
-  <div class="footer__logo">
-    <div class="footer__mark">MP</div>
-    <span class="footer__text">MarketingPlus</span>
-  </div>
-  <p class="footer__copy">专注B2B品牌市场营销 · 实战经验分享</p>
-</footer>
-
-</body>
+	</body>
 </html>
