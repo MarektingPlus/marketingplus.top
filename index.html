@@ -42,7 +42,7 @@
 				justify-content: flex-start;
 				align-items: center;
 				padding: 0.6em 0 0.3em 0; }
-				gap: 1em;
+				gap: 8px;
 			.contact-icon {
 				position: relative;
 				cursor: pointer;
@@ -73,7 +73,9 @@
 				border-radius: 4px; }
 			.wechat:hover .wechat-qr-popup { display: block; }
 			/* 清除邮箱图标下虚线 */
-			.contact-email { border-bottom: none !important; }</style>
+			/* 清除全局 a 标签虚线 */
+			.contact-icon,
+			.contact-icon a { border-bottom: none !important; }</style>
 
 
 	<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/js/all.min.js"></script>
