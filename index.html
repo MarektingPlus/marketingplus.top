@@ -35,18 +35,18 @@
 		</style>
 	
 			/* Logo 入口占位 */
-			#logo-placeholder { margin: 0 0 1.2em 0; }
-			.logo-box {
-				display: flex; flex-direction: column; align-items: center;
-				justify-content: center; border: 2px dashed #bbb; border-radius: 6px;
-				padding: 18px 10px; background: #f8f8f8; cursor: pointer;
-				min-height: 75px; text-align: center;
-			}
+			#logo-placeholder { display:none; }
 			.logo-box:hover { border-color: #7B35C6; background: #f0eeff; }
 			.logo-text { font-size: 0.85em; font-weight: 600; color: #3d4449; margin-bottom: 4px; }
 			.logo-hint { font-size: 0.7em; color: #aaa; }
 			/* 顶部 h1 去掉底边紫色线 */
 			#banner h1 { border-bottom: none !important; }
+
+	
+			/* 侧边栏 Logo */
+			#logo-placeholder { margin: 0 0 1.2em 0; }
+			#logo-placeholder a { display: block; }
+			#sidebar-logo { width: 100%%; max-width: 180px; height: auto; border-radius: 4px; }
 
 	</head>
 	<body class="is-preload">
@@ -181,12 +181,16 @@
 									</form>
 								</section>
 
+							<!-- Logo 入口 -->
+							<div id="logo-placeholder">
+								<a href="index.html">
+									<img src="images/logo.png" alt="MarketingPlus" id="sidebar-logo">
+								</a>
+							</div>
+
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>导航</h2>
-									</header>
-									<ul>
+							<nav id="menu">
+								<ul>
 										<li><a href="#posts">精选文章</a></li>
 										<li>
 											<span class="opener active">内容分类</span>
