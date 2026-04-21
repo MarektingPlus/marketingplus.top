@@ -21,9 +21,9 @@
 			/* 侧边栏 Logo */
 			#logo-placeholder { margin: 0 0 0.8em 0; padding: 0; }
 			#logo-placeholder a { display: block; }
-			#sidebar-logo { width: 100%; max-width: 10px; height: auto; border-radius: 4px; }
-			/* 侧边栏联系方式图标 */
-			.contact-icons { display: flex; gap: 12px; align-items: center; padding: 0.6em 0 0.3em 0; }
+			#sidebar-logo { width: 100%; max-width: 30px; height: auto; border-radius: 4px; }
+			/* 侧边栏联系方式 */
+			.contact-icons { display: flex; gap: 10px; align-items: center; padding: 0.6em 0 0.3em 0; }
 			.contact-icon { position: relative; cursor: pointer; display: inline-block; }
 			.contact-icon .icon { font-size: 1.4em; color: #3d4449; transition: color 0.2s; }
 			.contact-icon:hover .icon { color: #7B35C6; }
@@ -37,36 +37,15 @@
 			.wechat:hover .wechat-qr-popup { display: block; }
 		</style>
 
-		
-
-			
-	
-			/* Logo 入口占位 */
-			/* 顶部 h1 去掉底边紫色线 */
-			h1 { border-bottom: none !important; }
-
-	
-
-			/* 侧边栏 Logo */
-			#logo-placeholder { margin: 0 0 0.8em 0; padding: 0; }
-			#logo-placeholder a { display: block; }
-			#sidebar-logo { width: 100%; max-width: 10px; height: auto; border-radius: 4px; }
-
-
-	</head>
+</head>
 	<body class="is-preload">
 		<div id="wrapper">
 			<div id="main">
 				<div class="inner">
-					<header id="header">
-						<a href="index.html" class="logo"><strong>MarketingPlus</strong></a>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-weixin"><span class="label">微信</span></a></li>
-							<li><a href="mailto:meidan.wang@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-					</header>
-
-					<section id="banner" style="padding: 3em 0;">
+					
+						<div class="inner">
+							<!-- 顶部 Header 已移除 -->
+<section id="banner" style="padding: 3em 0;">
 						<div class="content">
 							<header>
 								<h1>案例分析</h1>
@@ -155,6 +134,21 @@
 										</li>
 									</ul>
 								</nav>
+
+						<!-- 联系方式 -->
+						<div class="contact-icons">
+							<a href="mailto:meidan.wang@outlook.com" class="contact-icon" title="邮箱">
+								<span class="icon fa-envelope"></span>
+							</a>
+							<div class="contact-icon wechat" title="微信">
+								<span class="icon fa-weixin"></span>
+								<div class="wechat-qr-popup">
+									<img src="images/签名.png" alt="微信二维码" onerror="this.style.display='none'">
+									<p style="font-size:0.7em;color:#888;margin:4px 0 0 0;">marketingplus001</p>
+								</div>
+							</div>
+						</div>
+
 
 
 							<!-- Footer -->
