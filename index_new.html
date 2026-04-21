@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<!--
+	MarketingPlus - 品牌市场人内容平台
+	基于 Editorial 模板定制
+-->
+<html>
+	<head>
+		<title>MarketingPlus - 品牌市场人的内容平台</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="为零IT经验的品牌市场人搭建零成本专业内容网站" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+			<style>
+			/* 强制展开内容分类子菜单 */
+			#menu > ul > li > ul { display: block !important; }
+			#menu > ul > li > ul a {
+				font-size: 0.82em !important;
+				padding: 0.35em 0 !important;
+				border-bottom: none;
+				color: #9fa3a6; }
+			#menu > ul > li > ul a:hover { color: #7B35C6 !important; }
+			/* 箭头默认向下（展开状态） */
+			#menu ul li.opener.active > span:before { transform: rotate(-180deg) !important; }
+		</style>
+			
+	
+			/* Logo 入口占位 */
+			#logo-placeholder {
+				margin: 0 0 1.5em 0;
+				padding: 0;
+			}
+			.logo-box {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				border: 2px dashed #ccc;
+				border-radius: 6px;
+				padding: 20px 10px;
+				background: #fafafa;
+				cursor: pointer;
+				transition: border-color 0.2s;
+				min-height: 80px;
+			}
+			.logo-box:hover { border-color: #7B35C6; }
+			.logo-text {
+				font-size: 0.85em;
+				font-weight: 600;
+				color: #3d4449;
+				margin-bottom: 4px;
+			}
+			.logo-hint {
+				font-size: 0.7em;
+				color: #aaa;
+			}
+			/* 去掉顶部 h1 的下划线（紫色线条） */
+			#banner h1 { border-bottom: none !important; padding-bottom: 0 !important; margin-bottom: 0 !important; }
+			/* 去掉 contact-icons 相关样式（不再使用） */
+			.contact-icons, .contact-icon, .wechat-qr-popup { display: none !important; }
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+						<!-- 顶部导航栏已移除 -->
+
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1 style="border-bottom:none;padding-bottom:0">品牌市场人的<br />内容创作平台</h1>
+											<p>为零IT经验的品牌市场人搭建零成本专业内容网站</p>
+										</header>
+										<p>我们提供最实用的品牌营销内容、案例分析和实战技巧，帮助品牌市场人提升工作效率，打造专业形象。</p>
+										<ul class="actions">
+											<li><a href="#posts" class="button big">浏览内容</a></li>
+										</ul>
+									</div>
+									<span class="image object">
+										<img src="images/pic10.jpg" alt="MarketingPlus" />
+									</span>
+								</section>
+
+							<!-- Section - Features -->
+								<section>
+									<header class="major">
+										<h2>核心内容</h2>
+									</header>
+									<div class="features">
+										<article>
+											<span class="icon solid fa-bullhorn"></span>
+											<div class="content">
+												<h3><a href="brand-marketing.html">品牌营销</a></h3>
+												<p>品牌策略、营销推广、内容运营等实战经验分享</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-chart-line"></span>
+											<div class="content">
+												<h3><a href="data-analysis.html">数据分析</a></h3>
+												<p>SEO/SEM 技巧、流量分析、转化优化等专业教程</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-pen-nib"></span>
+											<div class="content">
+												<h3><a href="content-creation.html">内容创作</a></h3>
+												<p>文案写作、视觉设计、社交媒体运营指南</p>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-lightbulb"></span>
+											<div class="content">
+												<h3><a href="case-studies.html">案例分析</a></h3>
+												<p>国内外品牌营销案例拆解，借鉴优秀实践经验</p>
+											</div>
+										</article>
+									</div>
+								</section>
+
+							<!-- Section - Posts -->
+							<section id="posts">
+									<header class="major">
+										<h2>精选文章</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<h3>品牌定位与差异化策略</h3>
+											<p>如何通过精准的品牌定位，在竞争激烈的市场中脱颖而出，建立独特的品牌认知。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<h3>内容营销实战指南</h3>
+											<p>从0到1构建内容营销体系，提升品牌影响力和用户转化。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<h3>社交媒体运营技巧</h3>
+											<p>微信、微博、抖音等平台运营策略，帮你打造爆款内容。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+											<h3>SEO 入门与进阶</h3>
+											<p>搜索引擎优化基础教程，让你的内容获得更多免费流量。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<h3>品牌视觉设计原则</h3>
+											<p>非设计师也能学会的品牌视觉设计基础，打造专业形象。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+											<h3>数据驱动营销决策</h3>
+											<p>利用数据分析优化营销策略，让每一分钱都花在刀刃上。</p>
+											<ul class="actions">
+												<li><a href="#" class="button">阅读全文</a></li>
+											</ul>
+										</article>
+									</div>
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="搜索文章..." />
+									</form>
+								</section>
+
+							<!-- Logo 入口 -->
+								<div id="logo-placeholder">
+									<div class="logo-box">
+										<span class="logo-text">Logo 入口</span>
+										<span class="logo-hint">上传您的 Logo 图片</span>
+									</div>
+								</div>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<ul>
+												<li><a href="#posts">精选文章</a></li>
+										<li>
+											<span class="opener active">内容分类</span>
+											<ul>
+												<li><a href="brand-marketing.html">品牌营销</a></li>
+												<li><a href="data-analysis.html">数据分析</a></li>
+												<li><a href="content-creation.html">内容创作</a></li>
+												<li><a href="case-studies.html">案例分析</a></li>
+											</ul>
+										</li>
+									</ul>
+								</nav>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; 2024 MarketingPlus. 基于 <a href="https://html5up.net">HTML5 UP</a> 模板定制.</p>
+								</footer>
+				</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
