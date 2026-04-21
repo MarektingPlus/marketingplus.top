@@ -39,6 +39,24 @@
 				min-width: 120px; text-align: center; }
 			.wechat-qr-popup img { width: 120px; height: 120px; display: block; border-radius: 4px; }
 			.wechat:hover .wechat-qr-popup { display: block; }
+
+			/* 侧边栏 Logo：45px，无线条 */
+			#logo-placeholder { margin: 0 0 0.6em 0; padding: 0; }
+			#logo-placeholder a { display:flex !important; align-items:center; gap:8px; text-decoration:none; border: none !important; }
+			#sidebar-logo { width: auto; max-width: 45px; height: auto; border-radius: 4px; border: none !important; box-shadow: none !important; }
+			/* 联系方式底部分开排列 */
+			.contact-icons { display: flex; justify-content: space-between; align-items: center; padding: 0.6em 0 0.3em 0; }
+			.contact-icon { position: relative; cursor: pointer; display: inline-block; }
+			.contact-icon .icon { font-size: 1.4em; color: #3d4449; transition: color 0.2s; }
+			.contact-icon:hover .icon { color: #7B35C6; }
+			.wechat-qr-popup {
+				display: none; position: absolute; bottom: calc(100% + 10px);
+				left: 50%; transform: translateX(-50%); z-index: 100;
+				background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
+				box-shadow: 0 4px 16px rgba(0,0,0,0.12); padding: 8px;
+				min-width: 120px; text-align: center; }
+			.wechat-qr-popup img { width: 120px; height: 120px; display: block; border-radius: 4px; }
+			.wechat:hover .wechat-qr-popup { display: block; }
 		</style>
 
 </head>
@@ -175,13 +193,14 @@
 								</section>
 
 							<!-- Logo 入口 -->
-							<div id="logo-placeholder">
-							<a href="index.html">
+													<!-- Logo 入口 -->
+						<div id="logo-placeholder">
+							<a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
 								<img src="images/logo.png" alt="MarketingPlus" id="sidebar-logo">
+								<span style="font-size:1.05em;font-weight:700;color:#7B35C6;letter-spacing:0.02em;white-space:nowrap;">MarketingPLUS</span>
 							</a>
-							</div>
-
-							<!-- Menu -->
+						</div>
+<!-- Menu -->
 							<nav id="menu">
 								<ul>
 										<li><a href="#posts">精选文章</a></li>
@@ -198,8 +217,9 @@
 								</nav>
 
 						<!-- 联系方式 -->
+												<!-- 联系方式 -->
 						<div class="contact-icons">
-							<a href="mailto:meidan.wang@outlook.com" class="contact-icon" title="邮箱">
+							<a href="mailto:meidan.wang@outlook.com" class="contact-icon contact-email" title="写邮件">
 								<span class="icon fa-envelope"></span>
 							</a>
 							<div class="contact-icon wechat" title="微信">
@@ -210,14 +230,17 @@
 								</div>
 							</div>
 						</div>
+</div>
+						</div>
 
 
 
 							<!-- Footer -->
 								
 						<!-- 联系方式 -->
+												<!-- 联系方式 -->
 						<div class="contact-icons">
-							<a href="mailto:meidan.wang@outlook.com" class="contact-icon" title="邮箱">
+							<a href="mailto:meidan.wang@outlook.com" class="contact-icon contact-email" title="写邮件">
 								<span class="icon fa-envelope"></span>
 							</a>
 							<div class="contact-icon wechat" title="微信">
@@ -227,6 +250,8 @@
 									<p style="font-size:0.7em;color:#888;margin:4px 0 0 0;">marketingplus001</p>
 								</div>
 							</div>
+						</div>
+</div>
 						</div>
 
 						<footer id="footer">
